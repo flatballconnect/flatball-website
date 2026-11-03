@@ -4,13 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A game on Flatball Connect</title>
-<meta name="description" content="You've been sent a pickup game. Open it in Flatball Connect to see who's going and join.">
+<meta name="description" content="You've been sent a pickup game. See when and where, who's going, and join in Flatball Connect.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Flatball Connect">
 <meta property="og:title" content="A game on Flatball Connect">
-<meta property="og:description" content="Open it in Flatball Connect to see who's going and join.">
+<meta property="og:description" content="See when and where, who's going, and join in the app.">
+<meta property="og:image" content="https://flatballconnect.app/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1B1B1D" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="icon" href="../icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -24,15 +30,29 @@
   </header>
 
   <main>
-    <p class="eyebrow">A shared game</p>
-    <h1 class="large">You've been sent a game.</h1>
-    <p class="lead">The details are in the message you were sent. Open it in Flatball
-    Connect to see who's going, and to say you're in.</p>
+    <p class="eyebrow" id="kind">A shared game</p>
+    <h1 class="large" id="title">You've been sent a game.</h1>
+    <p class="lead" id="lead">Loading the game…</p>
+
+    <div id="game" hidden>
+      <div class="rows facts">
+        <div class="row"><i class="icon" style="--src:url(../icons/date.svg)"></i>
+          <div><strong id="when"></strong><p class="muted" id="length"></p></div></div>
+        <div class="row"><i class="icon" style="--src:url(../icons/location.svg)"></i>
+          <div><strong id="place"></strong><p class="muted" id="address"></p>
+          <div class="buttons" style="margin:10px 0 0"><a class="button soft" id="directions" target="_blank" rel="noopener">Directions</a></div></div></div>
+        <div class="row"><i class="icon" style="--src:url(../icons/players.svg)"></i>
+          <div><strong id="spots"></strong><p class="muted" id="counts"></p></div></div>
+        <div class="row"><i class="icon" style="--src:url(../icons/organizer.svg)"></i>
+          <div><strong id="organizer"></strong><p class="muted" id="levels"></p></div></div>
+      </div>
+      <div class="card" id="about-card" hidden><p class="eyebrow">About</p><p class="pre" id="about"></p></div>
+    </div>
 
     <h2 class="section">Have the app?</h2>
     <div class="card">
       <p>On Android, a game's link opens straight in the app. If you're seeing this
-      page instead, open the game from here:</p>
+      page instead, open the game from here, then tap <strong>I'm in</strong>:</p>
       <div class="buttons">
         <a class="button" id="open" href="../">Open in Flatball Connect</a>
       </div>
@@ -45,8 +65,8 @@
       <p>Flatball Connect is free, with no ads: the rules, drills, strategies, coaching
       videos and pickup games near you. It's in testing on Android now.</p>
       <div class="buttons">
-        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest">Get the Android test build</a>
-        <a class="button soft" href="https://github.com/flatballconnect/flatball-releases#install-on-android">How to install</a>
+        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+        <a class="button soft" href="../install/">How to install</a>
       </div>
       <p class="muted">iPhone: coming soon.</p>
     </div>
@@ -55,6 +75,7 @@
   <footer class="site">
     <nav>
       <a href="../">Home</a>
+      <a href="../rules/">Rules</a>
       <a href="../privacy/">Privacy policy</a>
       <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
     </nav>
@@ -62,15 +83,92 @@
   </footer>
 </div>
 <script>
-  // On Android, "Open in Flatball Connect" asks for the app by name, which
-  // works even before Android has checked that this site and the app belong
-  // together. Elsewhere it stays a link home.
   (function () {
     var id = new URLSearchParams(location.search).get('id');
-    if (!id || !/^[A-Za-z0-9-]{1,64}$/.test(id) || !/Android/i.test(navigator.userAgent)) return;
-    document.getElementById('open').href =
-      'intent://flatballconnect.app/game/?id=' + id +
-      '#Intent;scheme=https;package=com.mvprojects.flatball;end';
+    var valid = id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+    var $ = function (x) { return document.getElementById(x); };
+    var set = function (x, text) { $(x).textContent = text; };
+
+    // On Android, "Open in Flatball Connect" asks for the app by name, which
+    // works even before Android has checked that this site and the app belong
+    // together. Elsewhere it stays a link home.
+    if (valid && /Android/i.test(navigator.userAgent)) {
+      $('open').href = 'intent://flatballconnect.app/game/?id=' + id +
+        '#Intent;scheme=https;package=com.mvprojects.flatball;end';
+    }
+    if (!valid) { set('lead', 'The details are in the message you were sent. Open it in Flatball Connect to see who\'s going, and to say you\'re in.'); return; }
+
+    // The app's own public key (Supabase's publishable key, in every APK
+    // too): games are public, and game_by_id answers signed out with the
+    // game and its counts, never who is going (0009, 0021).
+    var api = 'https://idxmshodtkxfrnwsqkbw.supabase.co/rest/v1/rpc/game_by_id';
+    var key = 'sb_publishable_ZGIidIDGny7xTsHzlRO3wA_mkgsNJ-g';
+    fetch(api, {
+      method: 'POST',
+      headers: { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_id: id })
+    }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (rows) { rows && rows.length ? show(rows[0]) : gone(); })
+      .catch(function () {
+        set('lead', 'Couldn\'t load the game just now. The details are in the message you were sent.');
+      });
+
+    function gone() {
+      set('title', 'This game isn\'t available any more.');
+      set('lead', 'The organizer may have removed it. Find another one near you in the app.');
+    }
+
+    var kinds = { pickup: 'Pickup', league: 'League', tournament: 'Tournament', hat: 'Hat' };
+    var levels = { beginner: 'Beginner', intermediate: 'Intermediate', club: 'Club', elite: 'Elite' };
+
+    function show(g) {
+      var start = new Date(g.starts_at);
+      var minutes = g.duration_minutes || 120;
+      var end = new Date(start.getTime() + minutes * 60000);
+      var now = new Date();
+      // The day written out ("Sunday 18 October"), never "Today", as the
+      // app's share message does; times in the reader's own time zone.
+      var day = start.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+      var time = function (d) { return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); };
+      // The zone in the reader's own words: "IST" in India, "EST" in the US.
+      var zone = start.toLocaleTimeString(undefined, { timeZoneName: 'short' }).split(' ').pop();
+
+      document.title = g.title + ' · Flatball Connect';
+      set('kind', kinds[g.kind] || 'Game');
+      set('title', g.title);
+      var status = g.is_cancelled ? 'This game was called off.'
+        : now >= end ? 'This game is over.'
+        : now >= start ? 'Happening now.'
+        : 'Open it in Flatball Connect to see who\'s going, and to say you\'re in.';
+      set('lead', status);
+
+      set('when', day + ', ' + time(start) + ' – ' + time(end) + ' ' + zone);
+      set('length', g.duration_minutes
+        ? (minutes % 60 ? Math.floor(minutes / 60) + ' h ' + (minutes % 60) + ' min' : minutes / 60 + ' h')
+        : 'Length not given');
+      set('place', g.place_name);
+      set('address', [g.place_address, g.place_city].filter(Boolean).filter(function (v, i, a) {
+        return a.indexOf(v) === i && (i === 0 || a[0].indexOf(v) === -1);
+      }).join(', '));
+      $('directions').href = 'https://www.google.com/maps/dir/?api=1&destination=' +
+        g.latitude + ',' + g.longitude;
+
+      var going = g.going_count || 0;
+      set('spots', g.capacity
+        ? (Math.max(g.capacity - going, 0) ? Math.max(g.capacity - going, 0) + ' of ' + g.capacity + ' spots left' : 'Full')
+        : 'Open to all, no limit');
+      var counts = going + ' going · ' + (g.interested_count || 0) + ' interested';
+      if (g.mmp_going || g.fmp_going) counts += ' · ' + (g.mmp_going || 0) + ' MMP · ' + (g.fmp_going || 0) + ' FMP';
+      set('counts', counts);
+      set('organizer', 'Organized by ' + (g.organizer_name || 'a player'));
+      var wanted = (g.skill_levels || []).map(function (l) { return levels[l] || l; });
+      set('levels', wanted.length ? wanted.join(', ') : 'All levels welcome');
+      if (g.description && g.description.trim()) {
+        set('about', g.description.trim());
+        $('about-card').hidden = false;
+      }
+      $('game').hidden = false;
+    }
   })();
 </script>
 </body>

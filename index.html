@@ -7,7 +7,19 @@
 <meta name="description" content="An app for ultimate players: the WFDF rules, a daily rules quiz, drills, strategies acted out, coaching videos and a map of pickup games.">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1B1B1D" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://flatballconnect.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Flatball Connect">
+<meta property="og:title" content="Flatball Connect: everything for ultimate, in one app">
+<meta property="og:description" content="The rules, drills, strategies, coaching videos and pickup games near you. Free, with no ads.">
+<meta property="og:url" content="https://flatballconnect.app/">
+<meta property="og:image" content="https://flatballconnect.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,8 +38,8 @@
     <p class="lead">The rules, drills, strategies, coaching videos and pickup games
     near you. Free, with no ads.</p>
     <div class="buttons">
-      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest">Get the Android test build</a>
-      <a class="button soft" href="#try">iPhone: coming soon</a>
+      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+      <a class="button soft" href="install/">How to install</a>
     </div>
 
     <div class="phones">
@@ -38,12 +50,14 @@
 
     <h2 class="section">Rules</h2>
     <div class="nav-cards">
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/quick-reference.svg)"></i></div>
-        <div class="text"><strong>Quick Reference</strong><span>12 common calls, each resolved in seconds</span></div></div>
+      <a class="nav-card" href="rules/"><div class="badge"><i class="icon" style="--src:url(icons/quick-reference.svg)"></i></div>
+        <div class="text"><strong>Quick Reference</strong><span>12 common calls, each resolved in seconds</span></div>
+        <i class="icon chevron" style="--src:url(icons/forward.svg)"></i></a>
       <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/rulebook.svg)"></i></div>
         <div class="text"><strong>Full Rulebook</strong><span>The WFDF Rules of Ultimate, word for word and searchable, with WFDF's official examples under the rules and every defined term a tap away</span></div></div>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/hand-signals.svg)"></i></div>
-        <div class="text"><strong>Hand Signals</strong><span>All 24 WFDF signals, drawn</span></div></div>
+      <a class="nav-card" href="rules/hand-signals/"><div class="badge"><i class="icon" style="--src:url(icons/hand-signals.svg)"></i></div>
+        <div class="text"><strong>Hand Signals</strong><span>All 24 WFDF signals, drawn</span></div>
+        <i class="icon chevron" style="--src:url(icons/forward.svg)"></i></a>
       <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/quiz.svg)"></i></div>
         <div class="text"><strong>Daily quiz</strong><span>Five questions a day that grow with your streak</span></div></div>
     </div>
@@ -83,11 +97,16 @@
     <div class="card callout" id="try" style="margin-top:36px">
       <p class="eyebrow">In testing</p>
       <p>Flatball Connect is in beta. The Android test build is free to install, and
-      updates itself with a banner when a new one is out. The iPhone version is
+      tells you with a banner when a new one is out. The iPhone version is
       coming.</p>
       <div class="buttons">
-        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest">Android test build</a>
-        <a class="button soft" href="https://github.com/flatballconnect/flatball-releases#install-on-android">How to install</a>
+        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+        <a class="button soft" href="install/">How to install</a>
+      </div>
+      <div data-release="box" hidden>
+        <p class="small">Latest: <strong data-release="version"></strong>, released
+        <span data-release="date"></span>. What's new:</p>
+        <ul class="small" data-release="notes" data-max="4"></ul>
       </div>
       <p class="small">Found a bug or have an idea? In the app, open Settings (your photo and
       the gear in the top corner) and tap <strong>Report a bug</strong>, or write to <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>.</p>
@@ -96,6 +115,8 @@
 
   <footer class="site">
     <nav>
+      <a href="rules/">Rules</a>
+      <a href="install/">Install</a>
       <a href="privacy/">Privacy policy</a>
       <a href="delete-account/">Delete your account</a>
       <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
@@ -107,5 +128,6 @@
     Icons from Google's Material Icons (CC BY 4.0).</p>
   </footer>
 </div>
+<script src="release.js"></script>
 </body>
 </html>

@@ -216,6 +216,55 @@ ol.steps li::before {
   box-shadow: inset 0 0 0 5px var(--open-soft), inset 0 0 0 18px var(--open);
 }
 
+/* Cards that are links: a chevron, as in the app's lists. */
+a.nav-card:hover { background: var(--sunken); }
+.nav-card .chevron { width: 20px; height: 20px; color: var(--text-3); }
+.badge .number { font-weight: 700; font-size: 20px; }
+
+/* The rules, word for word: numbered clauses, indented as WFDF prints them. */
+.rules .rule + .rule { border-top: 1px solid var(--separator); margin-top: 16px; padding-top: 16px; }
+.rule p { margin: 6px 0; }
+.rule-head { font-weight: 700; }
+.rule .clause { padding-left: calc(var(--indent, 0) * 22px); }
+.rule .num { color: var(--text-2); font-variant-numeric: tabular-nums; margin-right: 4px; }
+.rule .usau {
+  background: var(--sunken); border-radius: 12px; padding: 10px 14px;
+  font-size: 15px; color: var(--text-2);
+}
+.rule .usau strong { color: var(--text); }
+
+/* Hand signals: the app's drawings, light and dark. */
+.signals { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.signals:not(.all) { grid-template-columns: repeat(auto-fill, minmax(220px, 300px)); }
+.signal {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--surface); border-radius: var(--radius); padding: 12px 12px 16px;
+  box-shadow: var(--shadow); color: var(--text); text-decoration: none;
+  scroll-margin-top: 16px;
+}
+.signal img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 6px; }
+.signal strong { font-weight: 600; font-size: 17px; }
+.signal span { color: var(--text-2); font-size: 15px; }
+.signal .calls { color: var(--accent); font-weight: 600; font-size: 14px; }
+.signal:target { box-shadow: 0 0 0 3px var(--accent); }
+
+/* Previous and next call. */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0 12px; }
+.pager a {
+  display: block; background: var(--surface); border-radius: var(--radius);
+  padding: 14px 18px; box-shadow: var(--shadow); text-decoration: none; font-weight: 600;
+}
+.pager a .small { display: block; font-weight: 400; }
+.pager a.next { text-align: right; }
+
+/* A game's facts, one per row, as on the app's game screen. */
+.facts .row { display: flex; gap: 14px; align-items: flex-start; }
+.facts .row .icon { color: var(--accent); margin-top: 2px; }
+.facts .row p { margin: 2px 0 0; }
+.pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; background: var(--accent-soft); color: var(--accent); }
+
 footer.site {
   margin: 56px 0 32px; padding-top: 18px;
   border-top: 1px solid var(--separator);
