@@ -10,6 +10,13 @@ The privacy policy states only what the app does; when the app starts
 collecting or sharing something new, update `privacy/` (and its date) and,
 for anything about deletion, `delete-account/`, in the same change.
 
+- **The home page** (`index.html`, `home.js`, the `.landing` part of
+  `style.css`) has its own full-width layout: a coloured hero with the
+  phones cut off at its foot, a row of numbers, the features choosing one
+  phone's screen, a strip of screenshots, rules and help, and a download
+  band. Every other page keeps the single column. The numbers in the row
+  (plays, signals, drills) are written by hand: check them when the app's
+  content changes.
 - **`rules/` and `sitemap.xml` are generated** from the app's own content
   by `tool/build-rules.py` (the app's repo is expected at `../flatball`):
   the 12 Quick Reference calls, each with its steps, hand signal and the

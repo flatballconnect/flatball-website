@@ -281,3 +281,202 @@ footer.site p { margin: 4px 0; }
   .brand { font-size: 20px; }
   .brand img { width: 36px; height: 36px; }
 }
+
+/* The home page: a coloured hero with the phones cut off at its foot, a row
+   of numbers, features beside one phone, a strip of screenshots, help, and a
+   coloured download band. Everything is scoped to .landing, so the other
+   pages keep their single column. */
+.landing { --hero: #3D6A9E; --hero-deep: #2C5079; --disc: #E2B25C; }
+@media (prefers-color-scheme: dark) {
+  .landing { --hero: #2B3747; --hero-deep: #1F2833; }
+}
+html:has(.landing) { scroll-padding-top: 64px; }
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.landing) { scroll-behavior: smooth; }
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 10; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 0 clamp(16px, 3vw, 32px);
+  background: var(--surface); border-bottom: 1px solid var(--separator);
+}
+.topbar .brand { font-size: 19px; gap: 10px; }
+.topbar .brand img { width: 34px; height: 34px; }
+.topnav { display: flex; align-items: center; gap: 24px; }
+.topnav a:not(.pill) { color: var(--text); text-decoration: none; font-weight: 500; font-size: 16px; }
+.topnav a:not(.pill):hover { color: var(--accent); }
+.menu { display: none; position: relative; }
+.menu summary {
+  list-style: none; cursor: pointer; width: 44px; height: 44px; margin-right: -10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary span { display: block; width: 22px; height: 2px; border-radius: 2px; background: var(--text); }
+.menu nav {
+  position: absolute; right: -6px; top: 50px; min-width: 190px; padding: 8px;
+  background: var(--surface); border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+.menu nav a {
+  display: block; padding: 11px 14px; border-radius: 10px;
+  color: var(--text); text-decoration: none; font-weight: 500;
+}
+.menu nav a:hover { background: var(--sunken); }
+@media (max-width: 640px) {
+  .topnav { display: none; }
+  .menu { display: block; }
+}
+
+.hero {
+  position: relative; overflow: hidden; text-align: center; color: #fff;
+  background: linear-gradient(160deg, var(--hero), var(--hero-deep));
+  padding: clamp(36px, 6vw, 64px) 16px 0;
+}
+.hero .art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-text, .fan { position: relative; }
+.tagline { margin: 0; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.3; font-weight: 300; }
+.hero h1 {
+  margin: 12px 0 10px; font-size: clamp(38px, 6vw, 60px); line-height: 1.05;
+  font-weight: 700; letter-spacing: -0.025em;
+}
+.sub { margin: 0 auto; max-width: 520px; color: rgba(255, 255, 255, 0.86); }
+.hero .buttons, .download .buttons { justify-content: center; margin: 22px 0 0; }
+.hero .button, .download .button { background: #fff; color: var(--hero); }
+.hero .button.soft, .download .button.soft {
+  background: rgba(255, 255, 255, 0.16); color: #fff;
+}
+
+/* Three phones, cut off by the foot of the hero. */
+.fan {
+  --w: clamp(168px, 23vw, 250px);
+  height: calc(var(--w) * 1.5); margin-top: clamp(30px, 4vw, 44px);
+}
+.fan img {
+  position: absolute; left: 50%; top: 0; width: var(--w); height: auto; margin-left: calc(var(--w) / -2);
+  border: 6px solid #111; border-radius: 30px; background: #111;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+}
+.fan .left { transform: translate(-68%, 34px) rotate(-7deg) scale(.9); }
+.fan .right { transform: translate(68%, 34px) rotate(7deg) scale(.9); }
+@media (min-width: 720px) {
+  .fan .left { transform: translate(-82%, 34px) rotate(-7deg) scale(.92); }
+  .fan .right { transform: translate(82%, 34px) rotate(7deg) scale(.92); }
+}
+
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 820px; margin: 0 auto; padding: 22px 16px; text-align: center;
+}
+.landing main { background: var(--surface); }
+.stats div { padding: 4px 8px; }
+.stats div + div { border-left: 1px solid var(--separator); }
+.stats strong { display: block; font-size: 26px; line-height: 1.2; font-weight: 700; }
+.stats span { display: block; font-size: 14px; color: var(--text-2); }
+
+.band { padding: clamp(44px, 6vw, 64px) 16px; background: var(--bg); text-align: center; }
+.band.tint { background: var(--accent-soft); }
+.band.plain { background: var(--surface); }
+.band h2 {
+  margin: 0; font-size: clamp(28px, 4vw, 36px); line-height: 1.15;
+  font-weight: 700; letter-spacing: -0.02em;
+}
+.intro { margin: 8px auto 0; max-width: 560px; color: var(--text-2); }
+
+/* The features: one phone on a circle, and the list that chooses its screen. */
+.stage { position: relative; width: 228px; margin: 32px auto 36px; scroll-margin-top: 76px; }
+.stage::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 400px; max-width: calc(100vw - 32px); aspect-ratio: 1;
+  transform: translate(-50%, -50%); border-radius: 50%; background: var(--sunken);
+}
+.stage img {
+  position: relative; display: block; width: 100%; height: auto;
+  border: 6px solid #111; border-radius: 30px; background: #111;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+.features {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px;
+  max-width: 860px; margin: 0 auto; text-align: left;
+}
+.feature {
+  display: flex; align-items: flex-start; gap: 16px; width: 100%; padding: 12px;
+  background: none; border: 0; border-radius: var(--radius);
+  font: inherit; color: inherit; text-align: left; letter-spacing: inherit;
+}
+button.feature { cursor: pointer; }
+.ring {
+  width: 52px; height: 52px; flex: none; display: grid; place-items: center;
+  border-radius: 50%; border: 1.5px solid var(--text); color: var(--text);
+}
+.words { min-width: 0; }
+.words strong { display: block; font-size: 18px; font-weight: 600; line-height: 1.3; }
+.words span { display: block; margin-top: 2px; font-size: 15px; color: var(--text-2); }
+.feature.on .ring { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.feature.on .words strong { color: var(--accent); }
+.feature:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* The screenshots: a strip that snaps, with arrows over it. */
+.carousel { position: relative; max-width: 1000px; margin: 28px auto 0; }
+.track {
+  display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 4px 12px; scrollbar-width: none; text-align: center;
+}
+.track::-webkit-scrollbar { display: none; }
+.track .phone { width: 216px; }
+.track .phone img { border-color: #111; background: #111; }
+.track .phone figcaption { color: var(--text); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 12px; }
+.arrow {
+  position: absolute; top: 38%; z-index: 1; width: 44px; height: 44px;
+  display: grid; place-items: center; cursor: pointer; padding: 0;
+  border: 0; border-radius: 50%; background: var(--surface); color: var(--text);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.arrow[hidden] { display: none; }
+.arrow.prev { left: 2px; }
+.arrow.next { right: 2px; }
+.dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--text-3); }
+.dots i.on { background: var(--accent); }
+
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px auto; }
+.link {
+  display: flex; align-items: center; gap: 12px; padding: 10px 24px 10px 10px;
+  border: 1px solid var(--separator); border-radius: 14px;
+  color: var(--text); font-weight: 600; text-decoration: none;
+}
+.link:hover { background: var(--sunken); }
+.link .badge { width: 40px; height: 40px; border-radius: 10px; }
+.link .badge .icon { width: 22px; height: 22px; }
+.link .badge img { width: 40px; height: 40px; border-radius: 10px; }
+#help .card { max-width: 640px; margin: 0 auto; text-align: left; }
+
+/* The download band, with a phone cut off at its foot. */
+.download {
+  position: relative; overflow: hidden; text-align: center; color: #fff;
+  background: linear-gradient(160deg, var(--hero), var(--hero-deep));
+  padding: clamp(40px, 6vw, 56px) 16px 0;
+}
+.download h2 { margin: 0; font-size: clamp(28px, 4vw, 36px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+.download > p { margin: 8px 0 0; color: rgba(255, 255, 255, 0.86); }
+.peek {
+  width: 188px; height: 150px; margin: 34px auto 0; padding-top: 44px;
+  background: var(--hero-deep); border: 6px solid #111; border-bottom: 0;
+  border-radius: 30px 30px 0 0; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+.peek img { width: 56px; height: 56px; border-radius: 14px; }
+
+.landing footer.site {
+  margin: 0; padding: 26px 16px 32px; border: 0; text-align: center;
+  background: var(--surface);
+}
+.landing footer.site nav { justify-content: center; margin-bottom: 12px; }
+.landing footer.site p { max-width: 640px; margin: 6px auto; }
+
+@media (max-width: 640px) {
+  .features { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 0; }
+  .stats div:nth-child(3) { border-left: 0; }
+  .track .phone { width: 196px; }
+}

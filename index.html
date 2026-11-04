@@ -22,87 +22,164 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="./">
-      <img class="logo-light" src="logo.svg" alt="">
-      <img class="logo-dark" src="logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
+<body class="landing">
+<header class="topbar">
+  <a class="brand" href="./">
+    <img class="logo-light" src="logo.svg" alt="">
+    <img class="logo-dark" src="logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#screens">Screenshots</a>
+    <a href="rules/">Rules</a>
+    <a href="#help">Help</a>
     <a class="pill" href="#try">Beta</a>
-  </header>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="#features">Features</a>
+      <a href="#screens">Screenshots</a>
+      <a href="rules/">Rules</a>
+      <a href="#help">Help</a>
+      <a href="#try">Download</a>
+    </nav>
+  </details>
+</header>
 
-  <main>
-    <h1 class="large">Everything for ultimate, in one app.</h1>
-    <p class="lead">The rules, drills, strategies, coaching videos and pickup games
-    near you. Free, with no ads.</p>
-    <div class="buttons">
-      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
-      <a class="button soft" href="install/">How to install</a>
-    </div>
-
-    <div class="phones">
-      <figure class="phone"><img src="screens/learn.jpg" width="1100" height="2385" alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy"><figcaption>Learn</figcaption></figure>
-      <figure class="phone"><img src="screens/play.jpg" width="1100" height="2385" alt="Horizontal stack acted out: #7 goes deep as the disc flies to them, the open side shaded green"><figcaption>Strategies, acted out</figcaption></figure>
-      <figure class="phone"><img src="screens/chat.jpg" width="1100" height="2385" alt="A game's chat: the organizer's pinned note, who joined, a change of kick-off, players' messages and quick replies"><figcaption>A chat for every game</figcaption></figure>
-    </div>
-
-    <h2 class="section">Rules</h2>
-    <div class="nav-cards">
-      <a class="nav-card" href="rules/"><div class="badge"><i class="icon" style="--src:url(icons/quick-reference.svg)"></i></div>
-        <div class="text"><strong>Quick Reference</strong><span>12 common calls, each resolved in seconds</span></div>
-        <i class="icon chevron" style="--src:url(icons/forward.svg)"></i></a>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/rulebook.svg)"></i></div>
-        <div class="text"><strong>Full Rulebook</strong><span>The WFDF Rules of Ultimate, word for word and searchable, with WFDF's official examples under the rules and every defined term a tap away</span></div></div>
-      <a class="nav-card" href="rules/hand-signals/"><div class="badge"><i class="icon" style="--src:url(icons/hand-signals.svg)"></i></div>
-        <div class="text"><strong>Hand Signals</strong><span>All 24 WFDF signals, drawn</span></div>
-        <i class="icon chevron" style="--src:url(icons/forward.svg)"></i></a>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/quiz.svg)"></i></div>
-        <div class="text"><strong>Daily quiz</strong><span>Five questions a day that grow with your streak</span></div></div>
-    </div>
-    <div class="phones pair">
-      <figure class="phone"><img src="screens/quiz.jpg" width="1100" height="2385" loading="lazy" alt="The daily quiz asking which signal a drawn player is making, with four answers"><figcaption>The daily quiz</figcaption></figure>
-      <figure class="phone"><img src="screens/signals.jpg" width="1100" height="2385" loading="lazy" alt="The hand signals, each drawn: Foul, Violation, Goal, Contest"><figcaption>The 24 hand signals</figcaption></figure>
-    </div>
-
-    <h2 class="section">Skills</h2>
-    <div class="nav-cards">
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/strategy.svg)"></i></div>
-        <div class="text"><strong>Strategy</strong><span>25 plays acted out: stacks, cuts, zones and marks</span></div></div>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/throwing.svg)"></i></div>
-        <div class="text"><strong>Throwing</strong><span>Four throws, with cues and common mistakes</span></div></div>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/train.svg)"></i></div>
-        <div class="text"><strong>Drills</strong><span>15 drills, from throwing to mini ultimate, and warm-ups to follow along</span></div></div>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/watch.svg)"></i></div>
-        <div class="text"><strong>Watch</strong><span>Coaching videos and highlights, new every day</span></div></div>
-    </div>
-    <div class="phones pair">
-      <figure class="phone"><img src="screens/train.jpg" width="1100" height="2385" loading="lazy" alt="The Train tab: a warm-up and a cool-down to follow along, exercise by exercise"><figcaption>Warm-ups to follow along</figcaption></figure>
-      <figure class="phone"><img src="screens/drills.jpg" width="1100" height="2385" loading="lazy" alt="The drill library: each drill with players, minutes, focus and level, and Add to plan"><figcaption>The drill library</figcaption></figure>
-    </div>
-
-    <h2 class="section">Play</h2>
-    <div class="nav-cards">
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/find-a-game.svg)"></i></div>
-        <div class="text"><strong>Find a Game</strong><span>A map of pickup games near you. Post one, see who's going, MMP and FMP counts, reminders before kick-off</span></div></div>
-      <div class="nav-card"><div class="badge"><i class="icon" style="--src:url(icons/messages.svg)"></i></div>
-        <div class="text"><strong>Game chats</strong><span>A chat for every game you're in, with who joined and any change of time</span></div></div>
-    </div>
-    <div class="phones pair">
-      <figure class="phone"><img src="screens/map.jpg" width="1100" height="2385" loading="lazy" alt="Find a Game: pickup games on a map of Goa, one open with its time, place, spots and MMP and FMP counts"><figcaption>Games near you</figcaption></figure>
-      <figure class="phone"><img src="screens/game.jpg" width="1100" height="2385" loading="lazy" alt="Who's going to a game, each player tagged MMP or FMP, with I'm in and Interested"><figcaption>Who's going</figcaption></figure>
-    </div>
-
-    <div class="card callout" id="try" style="margin-top:36px">
-      <p class="eyebrow">In testing</p>
-      <p>Flatball Connect is in beta. The Android test build is free to install, and
-      tells you with a banner when a new one is out. The iPhone version is
-      coming.</p>
+<main>
+  <section class="hero">
+    <svg class="art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#fff">
+        <g opacity=".13" stroke-width="3" transform="rotate(-16 720 450)">
+          <rect x="-80" y="90" width="1600" height="720" rx="10"/>
+          <path d="M210 90v720M1230 90v720"/>
+          <path d="M395 438l24 24m0-24l-24 24M1021 438l24 24m0-24l-24 24"/>
+        </g>
+        <g opacity=".5" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 13">
+          <path d="M92 742C150 500 230 330 372 196"/>
+          <path d="M1364 690C1290 470 1180 300 1036 214"/>
+          <path d="M1036 214C1130 120 1240 90 1352 96"/>
+        </g>
+        <g opacity=".3" stroke-width="3">
+          <circle cx="92" cy="762" r="20"/><circle cx="392" cy="176" r="20"/>
+          <circle cx="1378" cy="710" r="20"/><circle cx="1016" cy="196" r="20"/>
+          <circle cx="1372" cy="96" r="20"/><circle cx="222" cy="600" r="20"/>
+          <circle cx="1210" cy="560" r="20"/><circle cx="1262" cy="330" r="20"/>
+        </g>
+      </g>
+      <g fill="#000" opacity=".18"><circle cx="208" cy="412" r="15"/><circle cx="1258" cy="470" r="13"/></g>
+      <g fill="#E2B25C" stroke="#fff" stroke-width="3"><circle cx="186" cy="384" r="13"/><circle cx="1240" cy="446" r="11"/></g>
+    </svg>
+    <div class="hero-text">
+      <p class="tagline">Everything for ultimate,<br>in one app.</p>
+      <h1>Flatball Connect</h1>
+      <p class="sub">The rules, drills, strategies, coaching videos and pickup games
+      near you. Free, with no ads.</p>
       <div class="buttons">
         <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
         <a class="button soft" href="install/">How to install</a>
       </div>
+    </div>
+    <div class="fan">
+      <img class="side left" src="screens/play.jpg" width="1100" height="2385" alt="Horizontal stack acted out: #7 goes deep as the disc flies to them, the open side shaded green">
+      <img class="side right" src="screens/chat.jpg" width="1100" height="2385" alt="A game's chat: the organizer's pinned note, who joined, a change of kick-off, players' messages and quick replies">
+      <img class="middle" src="screens/learn.jpg" width="1100" height="2385" alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy">
+    </div>
+  </section>
+
+  <section class="stats" aria-label="What's in the app">
+    <div><strong>25</strong><span>Plays acted out</span></div>
+    <div><strong>24</strong><span>Hand signals</span></div>
+    <div><strong>15</strong><span>Drills</span></div>
+    <div><strong>Free</strong><span>With no ads</span></div>
+  </section>
+
+  <section class="band" id="features">
+    <h2>Features</h2>
+    <p class="intro">Learn the rules, train for the game and find people to play with.</p>
+    <div class="stage" id="stage">
+      <img src="screens/learn.jpg" width="1100" height="2385" alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy">
+    </div>
+    <div class="features">
+      <button class="feature on" type="button" data-screen="screens/learn.jpg" data-alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy" aria-pressed="true">
+        <span class="ring"><i class="icon" style="--src:url(icons/quick-reference.svg)"></i></span>
+        <span class="words"><strong>Quick Reference</strong><span>12 common calls, each resolved in seconds</span></span>
+      </button>
+      <button class="feature" type="button" data-screen="screens/learn.jpg" data-alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/rulebook.svg)"></i></span>
+        <span class="words"><strong>Full Rulebook</strong><span>The WFDF Rules of Ultimate, word for word and searchable, with WFDF's official examples under the rules and every defined term a tap away</span></span>
+      </button>
+      <button class="feature" type="button" data-screen="screens/signals.jpg" data-alt="The hand signals, each drawn: Foul, Violation, Goal, Contest" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/hand-signals.svg)"></i></span>
+        <span class="words"><strong>Hand Signals</strong><span>All 24 WFDF signals, drawn</span></span>
+      </button>
+      <button class="feature" type="button" data-screen="screens/quiz.jpg" data-alt="The daily quiz asking which signal a drawn player is making, with four answers" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/quiz.svg)"></i></span>
+        <span class="words"><strong>Daily quiz</strong><span>Five questions a day that grow with your streak</span></span>
+      </button>
+      <button class="feature" type="button" data-screen="screens/play.jpg" data-alt="Horizontal stack acted out: #7 goes deep as the disc flies to them, the open side shaded green" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/strategy.svg)"></i></span>
+        <span class="words"><strong>Strategy</strong><span>25 plays acted out: stacks, cuts, zones and marks</span></span>
+      </button>
+      <div class="feature plain">
+        <span class="ring"><i class="icon" style="--src:url(icons/throwing.svg)"></i></span>
+        <span class="words"><strong>Throwing</strong><span>Four throws, with cues and common mistakes</span></span>
+      </div>
+      <button class="feature" type="button" data-screen="screens/drills.jpg" data-alt="The drill library: each drill with players, minutes, focus and level, and Add to plan" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/train.svg)"></i></span>
+        <span class="words"><strong>Drills</strong><span>15 drills, from throwing to mini ultimate, and warm-ups to follow along</span></span>
+      </button>
+      <div class="feature plain">
+        <span class="ring"><i class="icon" style="--src:url(icons/watch.svg)"></i></span>
+        <span class="words"><strong>Watch</strong><span>Coaching videos and highlights, new every day</span></span>
+      </div>
+      <button class="feature" type="button" data-screen="screens/map.jpg" data-alt="Find a Game: pickup games on a map of Goa, one open with its time, place, spots and MMP and FMP counts" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/find-a-game.svg)"></i></span>
+        <span class="words"><strong>Find a Game</strong><span>A map of pickup games near you. Post one, see who's going, MMP and FMP counts, reminders before kick-off</span></span>
+      </button>
+      <button class="feature" type="button" data-screen="screens/chat.jpg" data-alt="A game's chat: the organizer's pinned note, who joined, a change of kick-off, players' messages and quick replies" aria-pressed="false">
+        <span class="ring"><i class="icon" style="--src:url(icons/messages.svg)"></i></span>
+        <span class="words"><strong>Game chats</strong><span>A chat for every game you're in, with who joined and any change of time</span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="band tint" id="screens">
+    <h2>Screenshots</h2>
+    <p class="intro">Browse through the app's main screens.</p>
+    <div class="carousel">
+      <button class="arrow prev" type="button" aria-label="Previous screenshots" hidden><i class="icon" style="--src:url(icons/back.svg)"></i></button>
+      <div class="track" tabindex="0" aria-label="Screenshots">
+        <figure class="phone"><img src="screens/learn.jpg" width="1100" height="2385" loading="lazy" alt="The Learn tab: Quick Reference, Full Rulebook, Hand Signals, Throwing and Strategy"><figcaption>Learn</figcaption></figure>
+        <figure class="phone"><img src="screens/play.jpg" width="1100" height="2385" loading="lazy" alt="Horizontal stack acted out: #7 goes deep as the disc flies to them, the open side shaded green"><figcaption>Strategies, acted out</figcaption></figure>
+        <figure class="phone"><img src="screens/chat.jpg" width="1100" height="2385" loading="lazy" alt="A game's chat: the organizer's pinned note, who joined, a change of kick-off, players' messages and quick replies"><figcaption>A chat for every game</figcaption></figure>
+        <figure class="phone"><img src="screens/quiz.jpg" width="1100" height="2385" loading="lazy" alt="The daily quiz asking which signal a drawn player is making, with four answers"><figcaption>The daily quiz</figcaption></figure>
+        <figure class="phone"><img src="screens/signals.jpg" width="1100" height="2385" loading="lazy" alt="The hand signals, each drawn: Foul, Violation, Goal, Contest"><figcaption>The 24 hand signals</figcaption></figure>
+        <figure class="phone"><img src="screens/train.jpg" width="1100" height="2385" loading="lazy" alt="The Train tab: a warm-up and a cool-down to follow along, exercise by exercise"><figcaption>Warm-ups to follow along</figcaption></figure>
+        <figure class="phone"><img src="screens/drills.jpg" width="1100" height="2385" loading="lazy" alt="The drill library: each drill with players, minutes, focus and level, and Add to plan"><figcaption>The drill library</figcaption></figure>
+        <figure class="phone"><img src="screens/map.jpg" width="1100" height="2385" loading="lazy" alt="Find a Game: pickup games on a map of Goa, one open with its time, place, spots and MMP and FMP counts"><figcaption>Games near you</figcaption></figure>
+        <figure class="phone"><img src="screens/game.jpg" width="1100" height="2385" loading="lazy" alt="Who's going to a game, each player tagged MMP or FMP, with I'm in and Interested"><figcaption>Who's going</figcaption></figure>
+      </div>
+      <button class="arrow next" type="button" aria-label="More screenshots" hidden><i class="icon" style="--src:url(icons/forward.svg)"></i></button>
+    </div>
+    <div class="dots" aria-hidden="true"></div>
+  </section>
+
+  <section class="band plain" id="help">
+    <h2>Rules and help</h2>
+    <p class="intro">The calls and signals are here on the web too, and help is an email away.</p>
+    <div class="links">
+      <a class="link" href="rules/"><span class="badge"><i class="icon" style="--src:url(icons/quick-reference.svg)"></i></span>Quick Reference</a>
+      <a class="link" href="rules/hand-signals/"><span class="badge"><i class="icon" style="--src:url(icons/hand-signals.svg)"></i></span>Hand Signals</a>
+      <a class="link" href="install/"><span class="badge"><img src="apple-touch-icon.png" alt=""></span>How to install</a>
+    </div>
+    <div class="card callout">
+      <p class="eyebrow">In testing</p>
+      <p>Flatball Connect is in beta. The Android test build is free to install, and
+      tells you with a banner when a new one is out. The iPhone version is
+      coming.</p>
       <div data-release="box" hidden>
         <p class="small">Latest: <strong data-release="version"></strong>, released
         <span data-release="date"></span>. What's new:</p>
@@ -111,23 +188,34 @@
       <p class="small">Found a bug or have an idea? In the app, open Settings (your photo and
       the gear in the top corner) and tap <strong>Report a bug</strong>, or write to <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>.</p>
     </div>
-  </main>
+  </section>
 
-  <footer class="site">
-    <nav>
-      <a href="rules/">Rules</a>
-      <a href="install/">Install</a>
-      <a href="privacy/">Privacy policy</a>
-      <a href="delete-account/">Delete your account</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>© 2026 Bala Malaivendan</p>
-    <p>The rules and their Official Annotations are the WFDF Rules of Ultimate
+  <section class="download" id="try">
+    <h2>Download Flatball Connect</h2>
+    <p>Free, with no ads. Android now, iPhone coming.</p>
+    <div class="buttons">
+      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+      <a class="button soft" href="install/">How to install</a>
+    </div>
+    <div class="peek" aria-hidden="true"><img src="apple-touch-icon.png" alt=""></div>
+  </section>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="rules/">Rules</a>
+    <a href="install/">Install</a>
+    <a href="privacy/">Privacy policy</a>
+    <a href="delete-account/">Delete your account</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>© 2026 Bala Malaivendan</p>
+  <p>The rules and their Official Annotations are the WFDF Rules of Ultimate
     2025-2028, © World Flying Disc Federation, used under CC BY 4.0 (annotations
     reprinted from USA Ultimate are left out); the hand signals are redrawn from them.
     Icons from Google's Material Icons (CC BY 4.0).</p>
-  </footer>
-</div>
+</footer>
 <script src="release.js"></script>
+<script src="home.js"></script>
 </body>
 </html>
