@@ -14,21 +14,41 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="/">
-      <img class="logo-light" src="/logo.svg" alt="">
-      <img class="logo-dark" src="/logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
-  </header>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="/">
+    <img class="logo-light" src="/logo.svg" alt="">
+    <img class="logo-dark" src="/logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="/#features">Features</a>
+    <a href="/#screens">Screenshots</a>
+    <a href="/rules/">Rules</a>
+    <a href="/#help">Help</a>
+    <a class="pill" href="/install/">Get the app</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="/#features">Features</a>
+      <a href="/#screens">Screenshots</a>
+      <a href="/rules/">Rules</a>
+      <a href="/#help">Help</a>
+      <a href="/install/">Get the app</a>
+    </nav>
+  </details>
+</header>
 
-  <main>
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="/"><i class="icon" style="--src:url(/icons/back.svg)"></i>Home</a>
     <p class="eyebrow">Not found</p>
-    <h1 class="large">That page isn't here.</h1>
+    <h1>That page isn't here.</h1>
     <p class="lead">The link may be old or mistyped. These might be what you were after:</p>
-    <div class="nav-cards" style="margin-top:20px">
+  </section>
+  <div class="page-body">
+<div class="nav-cards" style="margin-top:20px">
       <a class="nav-card" href="/"><div class="text"><strong>Home</strong><span>What Flatball Connect is</span></div>
         <i class="icon chevron" style="--src:url(/icons/forward.svg)"></i></a>
       <a class="nav-card" href="/install/"><div class="text"><strong>Install</strong><span>Get the Android test build</span></div>
@@ -38,15 +58,16 @@
       <a class="nav-card" href="/privacy/"><div class="text"><strong>Privacy policy</strong><span>What the app keeps, and who sees it</span></div>
         <i class="icon chevron" style="--src:url(/icons/forward.svg)"></i></a>
     </div>
-  </main>
+  </div>
+</main>
 
-  <footer class="site">
-    <nav>
-      <a href="/">Home</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+<footer class="site">
+  <nav>
+    <a href="/">Home</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="/menu.js"></script>
 </body>
 </html>

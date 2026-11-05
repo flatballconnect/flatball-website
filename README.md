@@ -14,9 +14,12 @@ for anything about deletion, `delete-account/`, in the same change.
   `style.css`) has its own full-width layout: a coloured hero with the
   phones cut off at its foot, a row of numbers, the features choosing one
   phone's screen, a strip of screenshots, rules and help, and a download
-  band. Every other page keeps the single column. The numbers in the row
-  (plays, signals, drills) are written by hand: check them when the app's
-  content changes.
+  band. The numbers in the row (plays, signals, drills) are written by
+  hand: check them when the app's content changes.
+- **Every other page** shares its top bar, colours and footer (`.page` in
+  `style.css`, `menu.js`, `page-art.svg` behind each header). A change to
+  the top bar is made in `tool/build-rules.py` for the rules pages and by
+  hand in `install/`, `privacy/`, `delete-account/`, `game/` and `404.html`.
 - **`rules/` and `sitemap.xml` are generated** from the app's own content
   by `tool/build-rules.py` (the app's repo is expected at `../flatball`):
   the 12 Quick Reference calls, each with its steps, hand signal and the

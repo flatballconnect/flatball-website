@@ -19,20 +19,42 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="top-bar">
-    <a class="back" href="../" aria-label="Flatball Connect home"><i class="icon" style="--src:url(../icons/back.svg)"></i></a>
-    <div class="title">Delete your account</div>
-    <span></span>
-  </header>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../">
+    <img class="logo-light" src="../logo.svg" alt="">
+    <img class="logo-dark" src="../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#screens">Screenshots</a>
+    <a href="../rules/">Rules</a>
+    <a href="../#help">Help</a>
+    <a class="pill" href="../install/">Get the app</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../#features">Features</a>
+      <a href="../#screens">Screenshots</a>
+      <a href="../rules/">Rules</a>
+      <a href="../#help">Help</a>
+      <a href="../install/">Get the app</a>
+    </nav>
+  </details>
+</header>
 
-  <main>
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../icons/back.svg)"></i>Home</a>
     <p class="eyebrow">Flatball Connect · by Bala Malaivendan</p>
+    <h1>Delete your account</h1>
     <p class="lead">You can delete your account and its data at any time, in the app or
     by email.</p>
-
-    <h2 class="section">In the app</h2>
+  </section>
+  <div class="page-body">
+<h2 class="section">In the app</h2>
     <div class="card">
       <ol class="steps">
         <li><span>Open Flatball Connect and tap your photo (or initials) and the gear in the top corner, which opens <strong>Settings</strong>.</span></li>
@@ -83,16 +105,17 @@
     </div>
     <p class="muted">Anything you saved on your phone without signing in stays on your phone;
     deleting the app removes it. More in the <a href="../privacy/">privacy policy</a>.</p>
-  </main>
+  </div>
+</main>
 
-  <footer class="site">
-    <nav>
-      <a href="../">Home</a>
-      <a href="../privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+<footer class="site">
+  <nav>
+    <a href="../">Home</a>
+    <a href="../privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../menu.js"></script>
 </body>
 </html>

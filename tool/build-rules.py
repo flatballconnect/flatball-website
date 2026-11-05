@@ -67,14 +67,13 @@ def terms_in(*texts: str) -> list[str]:
 
 
 def page(*, path: str, title: str, description: str, back: tuple[str, str] | None,
-         body: str, depth: int) -> str:
+         eyebrow: str, heading: str, lead: str, body: str, depth: int) -> str:
     up = '../' * depth
     canonical = f'{ORIGIN}/{path}'
-    top = ''
+    crumb = ''
     if back:
-        top = (f'<div class="top-bar"><a class="back" href="{back[0]}" aria-label="{e(back[1])}">'
-               f'<i class="icon" style="--src:url({up}icons/back.svg)"></i></a>'
-               f'<span class="title">{e(back[1])}</span><span></span></div>')
+        crumb = (f'<a class="crumb" href="{back[0]}"><i class="icon" style="--src:url({up}icons/back.svg)"></i>'
+                 f'{e(back[1])}</a>')
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -97,54 +96,76 @@ def page(*, path: str, title: str, description: str, back: tuple[str, str] | Non
 <link rel="apple-touch-icon" href="{up}apple-touch-icon.png">
 <link rel="stylesheet" href="{up}style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="{up}">
-      <img class="logo-light" src="{up}logo.svg" alt="">
-      <img class="logo-dark" src="{up}logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="{up}">
+    <img class="logo-light" src="{up}logo.svg" alt="">
+    <img class="logo-dark" src="{up}logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="{up}#features">Features</a>
+    <a href="{up}#screens">Screenshots</a>
+    <a href="{up}rules/" aria-current="page">Rules</a>
+    <a href="{up}#help">Help</a>
     <a class="pill" href="{up}install/">Get the app</a>
-  </header>
-  {top}
-  <main>
-{body}
-  </main>
-
-  <footer class="site">
-    <nav>
-      <a href="{up}">Home</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="{up}#features">Features</a>
+      <a href="{up}#screens">Screenshots</a>
       <a href="{up}rules/">Rules</a>
-      <a href="{up}install/">Install</a>
-      <a href="{up}privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+      <a href="{up}#help">Help</a>
+      <a href="{up}install/">Get the app</a>
     </nav>
-    <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
-    from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
-    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
-    rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
-    words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
-    are what count.</p>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+  </details>
+</header>
+
+<main>
+  <section class="page-hero">
+    {crumb}
+    <p class="eyebrow">{e(eyebrow)}</p>
+    <h1>{e(heading)}</h1>
+    <p class="lead">{lead}</p>
+  </section>
+{body}
+{app_band(up)}
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="{up}">Home</a>
+    <a href="{up}rules/">Rules</a>
+    <a href="{up}install/">Install</a>
+    <a href="{up}privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
+  from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
+  under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
+  rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
+  words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
+  are what count.</p>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="{up}menu.js"></script>
 </body>
 </html>
 '''
 
 
-def app_card(up: str) -> str:
-    return f'''    <div class="card callout">
-      <p class="eyebrow">In the app</p>
-      <p>Flatball Connect has all 12 calls, the full WFDF rulebook with its official
-      examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
-      <div class="buttons">
-        <a class="button" href="{DOWNLOAD}">Download for Android</a>
-        <a class="button soft" href="{up}install/">How to install</a>
-      </div>
-      <p class="small">iPhone: coming soon.</p>
-    </div>'''
+def app_band(up: str) -> str:
+    return f'''  <section class="download flat">
+    <h2>In the app</h2>
+    <p class="lines">Flatball Connect has all 12 calls, the full WFDF rulebook with its official
+    examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
+    <div class="buttons">
+      <a class="button" href="{DOWNLOAD}">Download for Android</a>
+      <a class="button soft" href="{up}install/">How to install</a>
+    </div>
+    <p class="small">iPhone: coming soon.</p>
+  </section>'''
 
 
 def signal_picture(signal: dict, up: str, size: int) -> str:
@@ -178,36 +199,36 @@ def call_page(index: int, situation: dict) -> str:
     sid = situation['id']
     up = '../../'
     steps = ''.join(f'<li>{e(plain(step))}</li>' for step in situation['steps'])
-    blocks = [
-        f'    <p class="eyebrow">Quick Reference · {index + 1} of {len(situations)}</p>',
-        f'    <h1 class="large">{e(situation["title"])}</h1>',
-        f'    <p class="lead">{e(situation["prompt"])}</p>',
-        '    <div class="card callout"><p class="eyebrow">What happens</p>'
+    what = [
+        '      <div class="card callout"><p class="eyebrow">What happens</p>'
         f'<p>{e(plain(situation["verdict"]))}</p></div>',
-        '    <h2 class="section">Step by step</h2>',
-        f'    <div class="card"><ol class="steps">{steps}</ol></div>',
+        '      <h2 class="section">Step by step</h2>',
+        f'      <div class="card"><ol class="steps">{steps}</ol></div>',
     ]
     notes = situation.get('notes') or {}
     if notes.get('usau'):
         lines = ''.join(f'<p>{e(notes[k])}</p>' for k in ('wfdf', 'usau') if notes.get(k))
-        blocks.append('    <h2 class="section">WFDF and USA Ultimate</h2>')
-        blocks.append(f'    <div class="card">{lines}</div>')
+        what.append('      <h2 class="section">WFDF and USA Ultimate</h2>')
+        what.append(f'      <div class="card">{lines}</div>')
+    aside = []
     shown = [s for s in signals if sid in s.get('situations', [])]
     if shown:
-        blocks.append('    <h2 class="section">The hand signal</h2>')
-        blocks.append('    <div class="signals">' + ''.join(
+        aside.append('      <h2 class="section">The hand signal</h2>')
+        aside.append('      <div class="signals">' + ''.join(
             f'<a class="signal" href="{up}rules/hand-signals/#{s["id"]}">{signal_picture(s, up, SIGNAL_WIDTH)}'
             f'<strong>{e(s["name"])}</strong><span>{e(s["text"])}</span></a>' for s in shown) + '</div>')
-    blocks.append('    <h2 class="section">The rules</h2>')
-    blocks.append('    <p class="muted">From the WFDF Rules of Ultimate 2025-2028, word for word.</p>')
-    blocks.append('    <div class="card rules">' + ''.join(
-        rule_block(r) for r in situation['relatedRuleIDs'] if r in rules) + '</div>')
     used = terms_in(*situation['steps'], situation['verdict'])
     if used:
-        blocks.append('    <h2 class="section">Terms</h2>')
-        blocks.append('    <div class="rows">' + ''.join(
+        aside.append('      <h2 class="section">Terms</h2>')
+        aside.append('      <div class="rows">' + ''.join(
             f'<div class="row"><strong>{e(glossary[t]["term"])}</strong>'
             f'<p class="why muted">{e(plain(glossary[t]["definition"]))}</p></div>' for t in used) + '</div>')
+    why = [
+        '      <h2 class="section">The rules</h2>',
+        '      <p class="muted">From the WFDF Rules of Ultimate 2025-2028, word for word.</p>',
+        '      <div class="card rules">' + ''.join(
+            rule_block(r) for r in situation['relatedRuleIDs'] if r in rules) + '</div>',
+    ]
     previous = situations[index - 1] if index > 0 else None
     following = situations[index + 1] if index + 1 < len(situations) else None
     nav = '    <div class="pager">'
@@ -216,11 +237,17 @@ def call_page(index: int, situation: dict) -> str:
     nav += (f'<a class="next" href="../{following["id"]}/"><span class="small">Next</span>{e(following["title"])}</a>'
             if following else '<span></span>')
     nav += '</div>'
-    blocks.append(nav)
-    blocks.append(app_card(up))
+    # The aside comes before the rules so that on a phone the signal does too.
+    body = ('  <div class="page-body wide">\n    <div class="split">\n'
+            '    <div class="what">\n' + '\n'.join(what) + '\n    </div>\n'
+            '    <div class="aside">\n' + '\n'.join(aside) + '\n    </div>\n'
+            '    <div class="why">\n' + '\n'.join(why) + '\n    </div>\n'
+            '    </div>\n' + nav + '\n  </div>')
     description = f'{situation["title"]} in ultimate: {plain(situation["verdict"])}'
     return page(path=f'rules/{sid}/', title=f'{situation["title"]}: ultimate rules · Flatball Connect',
-                description=description, back=('../', 'Rules'), body='\n'.join(blocks), depth=2)
+                description=description, back=('../', 'Rules'),
+                eyebrow=f'Quick Reference · {index + 1} of {len(situations)}',
+                heading=situation['title'], lead=e(situation['prompt']), body=body, depth=2)
 
 
 def index_page() -> str:
@@ -230,24 +257,29 @@ def index_page() -> str:
         f'<div class="text"><strong>{e(s["title"])}</strong><span>{e(s["prompt"])}</span></div>'
         f'<i class="icon chevron" style="--src:url({up}icons/forward.svg)"></i></a>'
         for i, s in enumerate(situations))
-    body = f'''    <p class="eyebrow">Rules</p>
-    <h1 class="large">Ultimate's calls, quickly.</h1>
-    <p class="lead">The {len(situations)} calls that come up most, each resolved step by step,
-    with the WFDF rules behind them word for word.</p>
-    <h2 class="section">Quick Reference</h2>
+    # A taste of the signals: WFDF's first four.
+    preview = ''.join(
+        f'<a class="signal" href="hand-signals/#{s["id"]}">{signal_picture(s, up, SIGNAL_WIDTH)}'
+        f'<strong>{e(s["name"])}</strong></a>' for s in signals[:4])
+    body = f'''  <section class="band">
+    <h2>Quick Reference</h2>
     <div class="nav-cards">{cards}</div>
-    <h2 class="section">Hand signals</h2>
-    <div class="nav-cards"><a class="nav-card" href="hand-signals/"><div class="badge">
-      <i class="icon" style="--src:url({up}icons/hand-signals.svg)"></i></div>
-      <div class="text"><strong>Hand Signals</strong><span>All {len(signals)} WFDF signals, drawn</span></div>
-      <i class="icon chevron" style="--src:url({up}icons/forward.svg)"></i></a></div>
-    <p class="small" style="margin-top:20px">The full rules are WFDF's, at
+  </section>
+  <section class="band tint">
+    <h2>Hand signals</h2>
+    <p class="intro">All {len(signals)} WFDF signals, drawn.</p>
+    <div class="signals">{preview}</div>
+    <div class="buttons"><a class="button" href="hand-signals/">See all {len(signals)} signals</a></div>
+    <p class="small">The full rules are WFDF's, at
     <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>, and in the app, searchable.</p>
-{app_card(up)}'''
+  </section>'''
     return page(path='rules/', title='Ultimate rules, quickly · Flatball Connect',
                 description=f'The {len(situations)} most common calls in ultimate frisbee resolved '
                             'step by step, with the WFDF rules behind them and the 24 hand signals.',
-                back=None, body=body, depth=1)
+                back=(up, 'Home'), eyebrow='Rules', heading="Ultimate's calls, quickly.",
+                lead=f'The {len(situations)} calls that come up most, each resolved step by step, '
+                     'with the WFDF rules behind them word for word.',
+                body=body, depth=1)
 
 
 def signals_page() -> str:
@@ -262,16 +294,15 @@ def signals_page() -> str:
            if s['calls'] and s['calls'] != [s['name']] else '')
         + f'<span>{e(s["text"])}</span></div>'
         for s in signals)
-    body = f'''    <p class="eyebrow">Rules</p>
-    <h1 class="large">Hand signals</h1>
-    <p class="lead">All {len(signals)} of WFDF's hand signals, drawn.</p>
+    body = f'''  <div class="page-body wide">
     <div class="card">{about}</div>
     <div class="signals all">{cards}</div>
-{app_card(up)}'''
+  </div>'''
     return page(path='rules/hand-signals/', title='Ultimate hand signals · Flatball Connect',
                 description=f'All {len(signals)} WFDF hand signals for ultimate frisbee, drawn, '
                             'with what each one means and how it is made.',
-                back=('../', 'Rules'), body=body, depth=2)
+                back=('../', 'Rules'), eyebrow='Rules', heading='Hand signals',
+                lead=f"All {len(signals)} of WFDF's hand signals, drawn.", body=body, depth=2)
 
 
 def sitemap() -> str:

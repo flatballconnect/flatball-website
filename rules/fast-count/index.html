@@ -20,58 +20,86 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="stylesheet" href="../../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="../../">
-      <img class="logo-light" src="../../logo.svg" alt="">
-      <img class="logo-dark" src="../../logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../../">
+    <img class="logo-light" src="../../logo.svg" alt="">
+    <img class="logo-dark" src="../../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../../#features">Features</a>
+    <a href="../../#screens">Screenshots</a>
+    <a href="../../rules/" aria-current="page">Rules</a>
+    <a href="../../#help">Help</a>
     <a class="pill" href="../../install/">Get the app</a>
-  </header>
-  <div class="top-bar"><a class="back" href="../" aria-label="Rules"><i class="icon" style="--src:url(../../icons/back.svg)"></i></a><span class="title">Rules</span><span></span></div>
-  <main>
-    <p class="eyebrow">Quick Reference · 10 of 12</p>
-    <h1 class="large">Fast count</h1>
-    <p class="lead">The marker is counting too quickly</p>
-    <div class="card callout"><p class="eyebrow">What happens</p><p>Play goes on. The marker goes back one number and counts at least a second apart.</p></div>
-    <h2 class="section">Step by step</h2>
-    <div class="card"><ol class="steps"><li>Each number must take at least one second.</li><li>After the call, the marker reduces the count and counts properly.</li><li>If it keeps happening, the thrower can call a violation and the count restarts.</li></ol></div>
-    <h2 class="section">The hand signal</h2>
-    <div class="signals"><a class="signal" href="../../rules/hand-signals/#marking-infraction"><picture><source srcset="../../rules/hand-signals/img/marking-infraction-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/marking-infraction.jpg" width="480" height="480" loading="lazy" alt="The Marking Infraction hand signal: Arms extended to side, palms facing front"></picture><strong>Marking Infraction</strong><span>Arms extended to side, palms facing front</span></a></div>
-    <h2 class="section">The rules</h2>
-    <p class="muted">From the WFDF Rules of Ultimate 2025-2028, word for word.</p>
-    <div class="card rules"><div class="rule"><p class="rule-head">18.1 <span class="muted">Marking Infractions:</span></p><p class="clause" style="--indent:0"><span class="num">18.1.1</span> Marking infractions include the following:</p><p class="clause" style="--indent:1"><span class="num">18.1.1.1</span> “Fast Count” – the marker:</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.1</span> starts or continues the stall count illegally,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.2</span> does not start or restart the stall count with “Stalling”,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.3</span> counts in less than one second intervals,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.4</span> does not correctly reduce or reset the stall count when required, or</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.5</span> does not start the stall count from the correct number.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.2</span> “Straddle” – a line between a defensive player’s feet comes within one disc diameter of the thrower’s pivot point.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.3</span> “Disc Space” – any part of a defensive player is less than one disc diameter away from the torso of the thrower. However, if this situation is caused solely by movement of the thrower, it is not an infraction.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.4</span> “Wrapping” – a line between a defensive player’s hands or arms comes within one disc diameter of the thrower’s torso, or any part of the defensive player’s body is above the thrower’s pivot point. However, if this situation is caused solely by movement of the thrower, it is not an infraction.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.5</span> &quot;Double Team&quot; – a defensive player other than the marker is within three (3) metres of the thrower&#x27;s pivot point without also guarding another offensive player.</p><p class="clause" style="--indent:2"><span class="num">18.1.1.5.1</span> The defender guarding another offensive player can attempt to prevent a pass from the thrower, as long as they continue to guard another offensive player.</p><p class="clause" style="--indent:2"><span class="num">18.1.1.5.2</span> Merely running across this area is not a double team.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.6</span> “Vision” – a defensive player uses any part of their body to intentionally obstruct the thrower’s vision.</p><p class="clause" style="--indent:0"><span class="num">18.1.2</span> A marking infraction may be contested by the defence, in which case play stops.</p><p class="clause" style="--indent:1"><span class="num">18.1.2.1</span> If a pass has been completed, a contested or retracted marking infraction must be treated as a violation by the offence, and the disc must be returned to the thrower.</p><p class="clause" style="--indent:0"><span class="num">18.1.3</span> After all marking infractions listed in 18.1.1 and where play has not stopped, the marker must resume the stall count with the number last fully uttered before the call, minus one (1).</p><p class="clause" style="--indent:1"><span class="num">18.1.3.1</span> The marker must not resume counting until any illegal positioning has been corrected. To do otherwise is a subsequent marking infraction.</p><p class="clause" style="--indent:0"><span class="num">18.1.4</span> Instead of calling a marking infraction, the relevant player may call a marking violation and stop play if;</p><p class="clause" style="--indent:1"><span class="num">18.1.4.1</span> the stall count is not corrected,</p><p class="clause" style="--indent:1"><span class="num">18.1.4.2</span> there is no stall count,</p><p class="clause" style="--indent:1"><span class="num">18.1.4.3</span> there is an egregious marking infraction, or</p><p class="clause" style="--indent:1"><span class="num">18.1.4.4</span> there is a pattern of repeated marking infractions.</p><p class="clause" style="--indent:0"><span class="num">18.1.5</span> If a marking infraction, or a marking violation, is called and the thrower also attempts a pass before, during or after the call, the call has no consequences (unless 18.1.2.1 applies) and if the pass is incomplete, then the turnover stands.</p></div><div class="rule"><p class="rule-head">9.1</p><p>The marker administers a stall count on the thrower by announcing “Stalling” and then counting from one (1) to ten (10). The interval between the start of each number in the stall count must be at least one (1) second.</p><p class="usau"><strong>How USA Ultimate differs.</strong> USAU marker says “Stalling one, two, three…”. The legal marking distance is 10 feet.</p></div></div>
-    <div class="pager"><a href="../double-team/"><span class="small">Previous</span>Double team</a><a class="next" href="../brick/"><span class="small">Next</span>Pull out of bounds</a></div>
-    <div class="card callout">
-      <p class="eyebrow">In the app</p>
-      <p>Flatball Connect has all 12 calls, the full WFDF rulebook with its official
-      examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
-      <div class="buttons">
-        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
-        <a class="button soft" href="../../install/">How to install</a>
-      </div>
-      <p class="small">iPhone: coming soon.</p>
-    </div>
-  </main>
-
-  <footer class="site">
-    <nav>
-      <a href="../../">Home</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../../#features">Features</a>
+      <a href="../../#screens">Screenshots</a>
       <a href="../../rules/">Rules</a>
-      <a href="../../install/">Install</a>
-      <a href="../../privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+      <a href="../../#help">Help</a>
+      <a href="../../install/">Get the app</a>
     </nav>
-    <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
-    from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
-    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
-    rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
-    words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
-    are what count.</p>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+  </details>
+</header>
+
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../../icons/back.svg)"></i>Rules</a>
+    <p class="eyebrow">Quick Reference · 10 of 12</p>
+    <h1>Fast count</h1>
+    <p class="lead">The marker is counting too quickly</p>
+  </section>
+  <div class="page-body wide">
+    <div class="split">
+    <div class="what">
+      <div class="card callout"><p class="eyebrow">What happens</p><p>Play goes on. The marker goes back one number and counts at least a second apart.</p></div>
+      <h2 class="section">Step by step</h2>
+      <div class="card"><ol class="steps"><li>Each number must take at least one second.</li><li>After the call, the marker reduces the count and counts properly.</li><li>If it keeps happening, the thrower can call a violation and the count restarts.</li></ol></div>
+    </div>
+    <div class="aside">
+      <h2 class="section">The hand signal</h2>
+      <div class="signals"><a class="signal" href="../../rules/hand-signals/#marking-infraction"><picture><source srcset="../../rules/hand-signals/img/marking-infraction-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/marking-infraction.jpg" width="480" height="480" loading="lazy" alt="The Marking Infraction hand signal: Arms extended to side, palms facing front"></picture><strong>Marking Infraction</strong><span>Arms extended to side, palms facing front</span></a></div>
+    </div>
+    <div class="why">
+      <h2 class="section">The rules</h2>
+      <p class="muted">From the WFDF Rules of Ultimate 2025-2028, word for word.</p>
+      <div class="card rules"><div class="rule"><p class="rule-head">18.1 <span class="muted">Marking Infractions:</span></p><p class="clause" style="--indent:0"><span class="num">18.1.1</span> Marking infractions include the following:</p><p class="clause" style="--indent:1"><span class="num">18.1.1.1</span> “Fast Count” – the marker:</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.1</span> starts or continues the stall count illegally,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.2</span> does not start or restart the stall count with “Stalling”,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.3</span> counts in less than one second intervals,</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.4</span> does not correctly reduce or reset the stall count when required, or</p><p class="clause" style="--indent:2"><span class="num">18.1.1.1.5</span> does not start the stall count from the correct number.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.2</span> “Straddle” – a line between a defensive player’s feet comes within one disc diameter of the thrower’s pivot point.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.3</span> “Disc Space” – any part of a defensive player is less than one disc diameter away from the torso of the thrower. However, if this situation is caused solely by movement of the thrower, it is not an infraction.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.4</span> “Wrapping” – a line between a defensive player’s hands or arms comes within one disc diameter of the thrower’s torso, or any part of the defensive player’s body is above the thrower’s pivot point. However, if this situation is caused solely by movement of the thrower, it is not an infraction.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.5</span> &quot;Double Team&quot; – a defensive player other than the marker is within three (3) metres of the thrower&#x27;s pivot point without also guarding another offensive player.</p><p class="clause" style="--indent:2"><span class="num">18.1.1.5.1</span> The defender guarding another offensive player can attempt to prevent a pass from the thrower, as long as they continue to guard another offensive player.</p><p class="clause" style="--indent:2"><span class="num">18.1.1.5.2</span> Merely running across this area is not a double team.</p><p class="clause" style="--indent:1"><span class="num">18.1.1.6</span> “Vision” – a defensive player uses any part of their body to intentionally obstruct the thrower’s vision.</p><p class="clause" style="--indent:0"><span class="num">18.1.2</span> A marking infraction may be contested by the defence, in which case play stops.</p><p class="clause" style="--indent:1"><span class="num">18.1.2.1</span> If a pass has been completed, a contested or retracted marking infraction must be treated as a violation by the offence, and the disc must be returned to the thrower.</p><p class="clause" style="--indent:0"><span class="num">18.1.3</span> After all marking infractions listed in 18.1.1 and where play has not stopped, the marker must resume the stall count with the number last fully uttered before the call, minus one (1).</p><p class="clause" style="--indent:1"><span class="num">18.1.3.1</span> The marker must not resume counting until any illegal positioning has been corrected. To do otherwise is a subsequent marking infraction.</p><p class="clause" style="--indent:0"><span class="num">18.1.4</span> Instead of calling a marking infraction, the relevant player may call a marking violation and stop play if;</p><p class="clause" style="--indent:1"><span class="num">18.1.4.1</span> the stall count is not corrected,</p><p class="clause" style="--indent:1"><span class="num">18.1.4.2</span> there is no stall count,</p><p class="clause" style="--indent:1"><span class="num">18.1.4.3</span> there is an egregious marking infraction, or</p><p class="clause" style="--indent:1"><span class="num">18.1.4.4</span> there is a pattern of repeated marking infractions.</p><p class="clause" style="--indent:0"><span class="num">18.1.5</span> If a marking infraction, or a marking violation, is called and the thrower also attempts a pass before, during or after the call, the call has no consequences (unless 18.1.2.1 applies) and if the pass is incomplete, then the turnover stands.</p></div><div class="rule"><p class="rule-head">9.1</p><p>The marker administers a stall count on the thrower by announcing “Stalling” and then counting from one (1) to ten (10). The interval between the start of each number in the stall count must be at least one (1) second.</p><p class="usau"><strong>How USA Ultimate differs.</strong> USAU marker says “Stalling one, two, three…”. The legal marking distance is 10 feet.</p></div></div>
+    </div>
+    </div>
+    <div class="pager"><a href="../double-team/"><span class="small">Previous</span>Double team</a><a class="next" href="../brick/"><span class="small">Next</span>Pull out of bounds</a></div>
+  </div>
+  <section class="download flat">
+    <h2>In the app</h2>
+    <p class="lines">Flatball Connect has all 12 calls, the full WFDF rulebook with its official
+    examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
+    <div class="buttons">
+      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+      <a class="button soft" href="../../install/">How to install</a>
+    </div>
+    <p class="small">iPhone: coming soon.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../rules/">Rules</a>
+    <a href="../../install/">Install</a>
+    <a href="../../privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
+  from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
+  under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
+  rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
+  words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
+  are what count.</p>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../../menu.js"></script>
 </body>
 </html>

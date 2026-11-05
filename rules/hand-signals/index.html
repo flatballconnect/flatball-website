@@ -20,51 +20,71 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="stylesheet" href="../../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="../../">
-      <img class="logo-light" src="../../logo.svg" alt="">
-      <img class="logo-dark" src="../../logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../../">
+    <img class="logo-light" src="../../logo.svg" alt="">
+    <img class="logo-dark" src="../../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../../#features">Features</a>
+    <a href="../../#screens">Screenshots</a>
+    <a href="../../rules/" aria-current="page">Rules</a>
+    <a href="../../#help">Help</a>
     <a class="pill" href="../../install/">Get the app</a>
-  </header>
-  <div class="top-bar"><a class="back" href="../" aria-label="Rules"><i class="icon" style="--src:url(../../icons/back.svg)"></i></a><span class="title">Rules</span><span></span></div>
-  <main>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../../#features">Features</a>
+      <a href="../../#screens">Screenshots</a>
+      <a href="../../rules/">Rules</a>
+      <a href="../../#help">Help</a>
+      <a href="../../install/">Get the app</a>
+    </nav>
+  </details>
+</header>
+
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../../icons/back.svg)"></i>Rules</a>
     <p class="eyebrow">Rules</p>
-    <h1 class="large">Hand signals</h1>
+    <h1>Hand signals</h1>
     <p class="lead">All 24 of WFDF's hand signals, drawn.</p>
+  </section>
+  <div class="page-body wide">
     <div class="card"><p><span class="muted">F1.1</span> To signal to other players, game officials, substitutes, team staff or spectators, what call has been made by the players involved. Note: Responsibility for all calls remains with the players.</p><p><span class="muted">F2.1</span> Signals may be made either by the players involved, or by players or non-players (eg officials) who have heard the call.</p><p><span class="muted">F2.2</span> Non-players may only signal in response to a player&#x27;s call on the field.</p><p><span class="muted">F2.3</span> Non-players should also use signal 22 to indicate which team made the call, after the following calls: Foul, Violation, Retracted, Time-out, Spirit Stoppage and Stoppage.</p></div>
     <div class="signals all"><div class="signal" id="foul"><picture><source srcset="../../rules/hand-signals/img/foul-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/foul.jpg" width="480" height="480" loading="lazy" alt="The Foul hand signal: Hold one arm straight out and chop the other forearm across the straight arm"></picture><strong>1. Foul</strong><span>Hold one arm straight out and chop the other forearm across the straight arm</span></div><div class="signal" id="violation"><picture><source srcset="../../rules/hand-signals/img/violation-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/violation.jpg" width="480" height="480" loading="lazy" alt="The Violation hand signal: Hands above head forming a V, closed fists"></picture><strong>2. Violation</strong><span>Hands above head forming a V, closed fists</span></div><div class="signal" id="goal"><picture><source srcset="../../rules/hand-signals/img/goal-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/goal.jpg" width="480" height="480" loading="lazy" alt="The Goal hand signal: Raise both arms, fully extended, straight up, palms facing inward"></picture><strong>3. Goal</strong><span>Raise both arms, fully extended, straight up, palms facing inward</span></div><div class="signal" id="contest"><picture><source srcset="../../rules/hand-signals/img/contest-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/contest.jpg" width="480" height="480" loading="lazy" alt="The Contest hand signal: Two fists bumped together in front of chest, back of hands facing outward"></picture><strong>4. Contest</strong><span>Two fists bumped together in front of chest, back of hands facing outward</span></div><div class="signal" id="accepted"><picture><source srcset="../../rules/hand-signals/img/accepted-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/accepted.jpg" width="480" height="480" loading="lazy" alt="The Accepted hand signal: Forearms extended in front of body, elbows tight against torso with palms facing upwards"></picture><strong>5. Accepted</strong><span>Forearms extended in front of body, elbows tight against torso with palms facing upwards</span></div><div class="signal" id="retracted"><picture><source srcset="../../rules/hand-signals/img/retracted-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/retracted.jpg" width="480" height="480" loading="lazy" alt="The Retracted hand signal: Sweeping crossover motion with both arms extended down in front of body"></picture><strong>6. Retracted</strong><span>Sweeping crossover motion with both arms extended down in front of body</span></div><div class="signal" id="in-out"><picture><source srcset="../../rules/hand-signals/img/in-out-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/in-out.jpg" width="480" height="480" loading="lazy" alt="The In/Out-of-bounds – Out of end zone hand signal: Point with one arm extended, flat palm, thumb parallel to fingers, towards playing field (in) or away from playing field (out)"></picture><strong>7. In/Out-of-bounds – Out of end zone</strong><span class="calls">In · Out</span><span>Point with one arm extended, flat palm, thumb parallel to fingers, towards playing field (in) or away from playing field (out)</span></div><div class="signal" id="disc-down"><picture><source srcset="../../rules/hand-signals/img/disc-down-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/disc-down.jpg" width="480" height="480" loading="lazy" alt="The Disc down hand signal: Index finger straight arm pointing down at 45 degree"></picture><strong>8. Disc down</strong><span class="calls">Down</span><span>Index finger straight arm pointing down at 45 degree</span></div><div class="signal" id="disc-up"><picture><source srcset="../../rules/hand-signals/img/disc-up-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/disc-up.jpg" width="480" height="480" loading="lazy" alt="The Disc up hand signal: Elbow down forearm vertical index finger pointing upward"></picture><strong>9. Disc up</strong><span class="calls">Up</span><span>Elbow down forearm vertical index finger pointing upward</span></div><div class="signal" id="pick"><picture><source srcset="../../rules/hand-signals/img/pick-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/pick.jpg" width="480" height="480" loading="lazy" alt="The Pick hand signal: Arms raised, elbows bent, fists facing head"></picture><strong>10. Pick</strong><span>Arms raised, elbows bent, fists facing head</span></div><div class="signal" id="travel"><picture><source srcset="../../rules/hand-signals/img/travel-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/travel.jpg" width="480" height="480" loading="lazy" alt="The Travel hand signal: Closed fists, rotate wrists around in a vertical circle"></picture><strong>11. Travel</strong><span>Closed fists, rotate wrists around in a vertical circle</span></div><div class="signal" id="marking-infraction"><picture><source srcset="../../rules/hand-signals/img/marking-infraction-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/marking-infraction.jpg" width="480" height="480" loading="lazy" alt="The Marking Infraction hand signal: Arms extended to side, palms facing front"></picture><strong>12. Marking Infraction</strong><span class="calls">Fast Count · Straddle · Disc Space · Wrapping · Double Team · Vision</span><span>Arms extended to side, palms facing front</span></div><div class="signal" id="turnover"><picture><source srcset="../../rules/hand-signals/img/turnover-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/turnover.jpg" width="480" height="480" loading="lazy" alt="The Turnover hand signal: Right arm extended in front of body, palm facing up and then rotate to palm facing down"></picture><strong>13. Turnover</strong><span>Right arm extended in front of body, palm facing up and then rotate to palm facing down</span></div><div class="signal" id="timing-violation"><picture><source srcset="../../rules/hand-signals/img/timing-violation-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/timing-violation.jpg" width="480" height="480" loading="lazy" alt="The Timing Violation hand signal: Tap head with open hand"></picture><strong>14. Timing Violation</strong><span class="calls">Stall · Violation</span><span>Tap head with open hand</span></div><div class="signal" id="offside"><picture><source srcset="../../rules/hand-signals/img/offside-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/offside.jpg" width="480" height="480" loading="lazy" alt="The Offside/False Start hand signal: Arms crossed overhead in an X, hands closed in a fist"></picture><strong>15. Offside/False Start</strong><span class="calls">Offside · False Start</span><span>Arms crossed overhead in an X, hands closed in a fist</span></div><div class="signal" id="time-out"><picture><source srcset="../../rules/hand-signals/img/time-out-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/time-out.jpg" width="480" height="480" loading="lazy" alt="The Time-out hand signal: Form a T with the hands, or a hand and the disc"></picture><strong>16. Time-out</strong><span>Form a T with the hands, or a hand and the disc</span></div><div class="signal" id="spirit-stoppage"><picture><source srcset="../../rules/hand-signals/img/spirit-stoppage-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/spirit-stoppage.jpg" width="480" height="480" loading="lazy" alt="The Spirit Stoppage hand signal: Upside down T formed by the hands"></picture><strong>17. Spirit Stoppage</strong><span>Upside down T formed by the hands</span></div><div class="signal" id="stoppage"><picture><source srcset="../../rules/hand-signals/img/stoppage-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/stoppage.jpg" width="480" height="480" loading="lazy" alt="The Stoppage hand signal: Hands clasped and raised above head, arms bent"></picture><strong>18. Stoppage</strong><span class="calls">Injury · Technical</span><span>Hands clasped and raised above head, arms bent</span></div><div class="signal" id="ratio-male"><picture><source srcset="../../rules/hand-signals/img/ratio-male-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/ratio-male.jpg" width="480" height="480" loading="lazy" alt="The Personnel Ratio: Male Matching hand signal: Hands cupped behind head, elbows out to side"></picture><strong>19. Personnel Ratio: Male Matching</strong><span class="calls">Ratio: Male Matching</span><span>Hands cupped behind head, elbows out to side</span></div><div class="signal" id="ratio-female"><picture><source srcset="../../rules/hand-signals/img/ratio-female-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/ratio-female.jpg" width="480" height="480" loading="lazy" alt="The Personnel Ratio: Female Matching hand signal: Arms extended to side, hands closed in a fist"></picture><strong>20. Personnel Ratio: Female Matching</strong><span class="calls">Ratio: Female Matching</span><span>Arms extended to side, hands closed in a fist</span></div><div class="signal" id="play-stopped"><picture><source srcset="../../rules/hand-signals/img/play-stopped-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/play-stopped.jpg" width="480" height="480" loading="lazy" alt="The Play has stopped hand signal: Wave both extended arms crosswise overhead"></picture><strong>21. Play has stopped</strong><span>Wave both extended arms crosswise overhead</span></div><div class="signal" id="who-made-the-call"><picture><source srcset="../../rules/hand-signals/img/who-made-the-call-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/who-made-the-call.jpg" width="480" height="480" loading="lazy" alt="The Who made the call hand signal: Pointing with two arms straight out, towards the end zone being defended by the team"></picture><strong>22. Who made the call</strong><span class="calls">Called by Offence/Defence</span><span>Pointing with two arms straight out, towards the end zone being defended by the team</span></div><div class="signal" id="did-not-affect"><picture><source srcset="../../rules/hand-signals/img/did-not-affect-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/did-not-affect.jpg" width="480" height="480" loading="lazy" alt="The Did not affect the play hand signal: Open hand held above head and sweeping forward and back"></picture><strong>23. Did not affect the play</strong><span>Open hand held above head and sweeping forward and back</span></div><div class="signal" id="match-point"><picture><source srcset="../../rules/hand-signals/img/match-point-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../../rules/hand-signals/img/match-point.jpg" width="480" height="480" loading="lazy" alt="The Match Point hand signal: Both arms pointing straight up to the left, palms facing down"></picture><strong>24. Match Point</strong><span>Both arms pointing straight up to the left, palms facing down</span></div></div>
-    <div class="card callout">
-      <p class="eyebrow">In the app</p>
-      <p>Flatball Connect has all 12 calls, the full WFDF rulebook with its official
-      examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
-      <div class="buttons">
-        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
-        <a class="button soft" href="../../install/">How to install</a>
-      </div>
-      <p class="small">iPhone: coming soon.</p>
+  </div>
+  <section class="download flat">
+    <h2>In the app</h2>
+    <p class="lines">Flatball Connect has all 12 calls, the full WFDF rulebook with its official
+    examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
+    <div class="buttons">
+      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+      <a class="button soft" href="../../install/">How to install</a>
     </div>
-  </main>
+    <p class="small">iPhone: coming soon.</p>
+  </section>
+</main>
 
-  <footer class="site">
-    <nav>
-      <a href="../../">Home</a>
-      <a href="../../rules/">Rules</a>
-      <a href="../../install/">Install</a>
-      <a href="../../privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
-    from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
-    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
-    rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
-    words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
-    are what count.</p>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+<footer class="site">
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../rules/">Rules</a>
+    <a href="../../install/">Install</a>
+    <a href="../../privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
+  from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
+  under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
+  rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
+  words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
+  are what count.</p>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../../menu.js"></script>
 </body>
 </html>

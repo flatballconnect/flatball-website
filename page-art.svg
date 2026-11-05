@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMid slice">
+  <!-- Behind every page's header: field lines, a throw, its disc and shadow. -->
+  <g fill="none" stroke="#fff">
+    <g opacity=".12" stroke-width="3" transform="rotate(-10 720 180)">
+      <rect x="-90" y="-40" width="1620" height="440" rx="10"/>
+      <path d="M220 -40v440M1220 -40v440"/>
+    </g>
+    <path opacity=".45" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 13" d="M1120 330C1180 210 1280 110 1400 70"/>
+    <path opacity=".45" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 13" d="M40 300C90 190 170 110 300 60"/>
+    <g opacity=".3" stroke-width="3">
+      <circle cx="1100" cy="344" r="16"/><circle cx="1416" cy="62" r="16"/>
+      <circle cx="28" cy="318" r="16"/><circle cx="316" cy="52" r="16"/>
+    </g>
+  </g>
+  <circle cx="1266" cy="166" r="11" fill="#000" opacity=".18"/>
+  <circle cx="1250" cy="146" r="10" fill="#E2B25C" stroke="#fff" stroke-width="3"/>
+</svg>

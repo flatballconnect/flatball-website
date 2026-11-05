@@ -1,13 +1,7 @@
-// The home page: the top menu, the features' phone and the screenshots.
+// The home page: the features' phone and the screenshots.
 // Without this script the page still reads: the phone stays on its first
 // screen and the screenshots scroll by hand.
 (function () {
-  // The menu closes when a link in it is followed, or on a tap elsewhere.
-  var menu = document.querySelector('.menu');
-  document.addEventListener('click', function (e) {
-    if (menu.open && (!menu.contains(e.target) || e.target.closest('a'))) menu.open = false;
-  });
-
   // Choosing a feature shows its screen. On a phone the screen is above the
   // list and may be off the top, so a tap brings it back into view.
   var stage = document.querySelector('#stage img');

@@ -19,21 +19,43 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="top-bar">
-    <a class="back" href="../" aria-label="Flatball Connect home"><i class="icon" style="--src:url(../icons/back.svg)"></i></a>
-    <div class="title">Privacy policy</div>
-    <span></span>
-  </header>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../">
+    <img class="logo-light" src="../logo.svg" alt="">
+    <img class="logo-dark" src="../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#screens">Screenshots</a>
+    <a href="../rules/">Rules</a>
+    <a href="../#help">Help</a>
+    <a class="pill" href="../install/">Get the app</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../#features">Features</a>
+      <a href="../#screens">Screenshots</a>
+      <a href="../rules/">Rules</a>
+      <a href="../#help">Help</a>
+      <a href="../install/">Get the app</a>
+    </nav>
+  </details>
+</header>
 
-  <main>
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../icons/back.svg)"></i>Home</a>
     <p class="eyebrow">Flatball Connect · Effective 27 October 2026</p>
+    <h1>Privacy policy</h1>
     <p class="lead">Flatball Connect is an app for ultimate players, made by Bala Malaivendan
     (“we”). This says what the app collects, why, who else is involved, and what you
     can do about it.</p>
-
-    <div class="card callout">
+  </section>
+  <div class="page-body">
+<div class="card callout">
       <p class="eyebrow">The short version</p>
       <ul class="check">
         <li>You can use the rules, quiz, drills, strategies and videos without an account.</li>
@@ -193,16 +215,17 @@
     <div class="card">
       <p>Bala Malaivendan<br><a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a></p>
     </div>
-  </main>
+  </div>
+</main>
 
-  <footer class="site">
-    <nav>
-      <a href="../">Home</a>
-      <a href="../delete-account/">Delete your account</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+<footer class="site">
+  <nav>
+    <a href="../">Home</a>
+    <a href="../delete-account/">Delete your account</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../menu.js"></script>
 </body>
 </html>

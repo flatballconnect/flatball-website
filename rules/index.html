@@ -20,59 +20,79 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="../">
-      <img class="logo-light" src="../logo.svg" alt="">
-      <img class="logo-dark" src="../logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../">
+    <img class="logo-light" src="../logo.svg" alt="">
+    <img class="logo-dark" src="../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#screens">Screenshots</a>
+    <a href="../rules/" aria-current="page">Rules</a>
+    <a href="../#help">Help</a>
     <a class="pill" href="../install/">Get the app</a>
-  </header>
-  
-  <main>
-    <p class="eyebrow">Rules</p>
-    <h1 class="large">Ultimate's calls, quickly.</h1>
-    <p class="lead">The 12 calls that come up most, each resolved step by step,
-    with the WFDF rules behind them word for word.</p>
-    <h2 class="section">Quick Reference</h2>
-    <div class="nav-cards"><a class="nav-card" href="pick/"><div class="badge"><span class="number">1</span></div><div class="text"><strong>Pick called</strong><span>Someone yells “Pick!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="travel/"><div class="badge"><span class="number">2</span></div><div class="text"><strong>Travel</strong><span>The thrower moved their pivot</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="contested-foul/"><div class="badge"><span class="number">3</span></div><div class="text"><strong>Contested foul</strong><span>“Foul!” … “Contest!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="disc-in-endzone/"><div class="badge"><span class="number">4</span></div><div class="text"><strong>Disc in the end zone</strong><span>Was that a goal?</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="stall-out/"><div class="badge"><span class="number">5</span></div><div class="text"><strong>Stall-out contested</strong><span>“Ten!” … “I got it off!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="out-of-bounds/"><div class="badge"><span class="number">6</span></div><div class="text"><strong>Disc out of bounds</strong><span>The disc landed outside the lines</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="line-call/"><div class="badge"><span class="number">7</span></div><div class="text"><strong>Was the receiver in?</strong><span>A toe on the sideline</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="strip/"><div class="badge"><span class="number">8</span></div><div class="text"><strong>Strip</strong><span>The disc got knocked out of a catch</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="double-team/"><div class="badge"><span class="number">9</span></div><div class="text"><strong>Double team</strong><span>Two defenders near the thrower</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="fast-count/"><div class="badge"><span class="number">10</span></div><div class="text"><strong>Fast count</strong><span>The marker is counting too quickly</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="brick/"><div class="badge"><span class="number">11</span></div><div class="text"><strong>Pull out of bounds</strong><span>The pull landed outside the lines</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="receiving-foul/"><div class="badge"><span class="number">12</span></div><div class="text"><strong>Fouled going for a catch</strong><span>Contact during a catch attempt</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a></div>
-    <h2 class="section">Hand signals</h2>
-    <div class="nav-cards"><a class="nav-card" href="hand-signals/"><div class="badge">
-      <i class="icon" style="--src:url(../icons/hand-signals.svg)"></i></div>
-      <div class="text"><strong>Hand Signals</strong><span>All 24 WFDF signals, drawn</span></div>
-      <i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a></div>
-    <p class="small" style="margin-top:20px">The full rules are WFDF's, at
-    <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>, and in the app, searchable.</p>
-    <div class="card callout">
-      <p class="eyebrow">In the app</p>
-      <p>Flatball Connect has all 12 calls, the full WFDF rulebook with its official
-      examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
-      <div class="buttons">
-        <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
-        <a class="button soft" href="../install/">How to install</a>
-      </div>
-      <p class="small">iPhone: coming soon.</p>
-    </div>
-  </main>
-
-  <footer class="site">
-    <nav>
-      <a href="../">Home</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../#features">Features</a>
+      <a href="../#screens">Screenshots</a>
       <a href="../rules/">Rules</a>
-      <a href="../install/">Install</a>
-      <a href="../privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+      <a href="../#help">Help</a>
+      <a href="../install/">Get the app</a>
     </nav>
-    <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
-    from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
-    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
-    rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
-    words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
-    are what count.</p>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+  </details>
+</header>
+
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../icons/back.svg)"></i>Home</a>
+    <p class="eyebrow">Rules</p>
+    <h1>Ultimate&#x27;s calls, quickly.</h1>
+    <p class="lead">The 12 calls that come up most, each resolved step by step, with the WFDF rules behind them word for word.</p>
+  </section>
+  <section class="band">
+    <h2>Quick Reference</h2>
+    <div class="nav-cards"><a class="nav-card" href="pick/"><div class="badge"><span class="number">1</span></div><div class="text"><strong>Pick called</strong><span>Someone yells “Pick!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="travel/"><div class="badge"><span class="number">2</span></div><div class="text"><strong>Travel</strong><span>The thrower moved their pivot</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="contested-foul/"><div class="badge"><span class="number">3</span></div><div class="text"><strong>Contested foul</strong><span>“Foul!” … “Contest!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="disc-in-endzone/"><div class="badge"><span class="number">4</span></div><div class="text"><strong>Disc in the end zone</strong><span>Was that a goal?</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="stall-out/"><div class="badge"><span class="number">5</span></div><div class="text"><strong>Stall-out contested</strong><span>“Ten!” … “I got it off!”</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="out-of-bounds/"><div class="badge"><span class="number">6</span></div><div class="text"><strong>Disc out of bounds</strong><span>The disc landed outside the lines</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="line-call/"><div class="badge"><span class="number">7</span></div><div class="text"><strong>Was the receiver in?</strong><span>A toe on the sideline</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="strip/"><div class="badge"><span class="number">8</span></div><div class="text"><strong>Strip</strong><span>The disc got knocked out of a catch</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="double-team/"><div class="badge"><span class="number">9</span></div><div class="text"><strong>Double team</strong><span>Two defenders near the thrower</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="fast-count/"><div class="badge"><span class="number">10</span></div><div class="text"><strong>Fast count</strong><span>The marker is counting too quickly</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="brick/"><div class="badge"><span class="number">11</span></div><div class="text"><strong>Pull out of bounds</strong><span>The pull landed outside the lines</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a><a class="nav-card" href="receiving-foul/"><div class="badge"><span class="number">12</span></div><div class="text"><strong>Fouled going for a catch</strong><span>Contact during a catch attempt</span></div><i class="icon chevron" style="--src:url(../icons/forward.svg)"></i></a></div>
+  </section>
+  <section class="band tint">
+    <h2>Hand signals</h2>
+    <p class="intro">All 24 WFDF signals, drawn.</p>
+    <div class="signals"><a class="signal" href="hand-signals/#foul"><picture><source srcset="../rules/hand-signals/img/foul-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../rules/hand-signals/img/foul.jpg" width="480" height="480" loading="lazy" alt="The Foul hand signal: Hold one arm straight out and chop the other forearm across the straight arm"></picture><strong>Foul</strong></a><a class="signal" href="hand-signals/#violation"><picture><source srcset="../rules/hand-signals/img/violation-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../rules/hand-signals/img/violation.jpg" width="480" height="480" loading="lazy" alt="The Violation hand signal: Hands above head forming a V, closed fists"></picture><strong>Violation</strong></a><a class="signal" href="hand-signals/#goal"><picture><source srcset="../rules/hand-signals/img/goal-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../rules/hand-signals/img/goal.jpg" width="480" height="480" loading="lazy" alt="The Goal hand signal: Raise both arms, fully extended, straight up, palms facing inward"></picture><strong>Goal</strong></a><a class="signal" href="hand-signals/#contest"><picture><source srcset="../rules/hand-signals/img/contest-dark.jpg" media="(prefers-color-scheme: dark)"><img src="../rules/hand-signals/img/contest.jpg" width="480" height="480" loading="lazy" alt="The Contest hand signal: Two fists bumped together in front of chest, back of hands facing outward"></picture><strong>Contest</strong></a></div>
+    <div class="buttons"><a class="button" href="hand-signals/">See all 24 signals</a></div>
+    <p class="small">The full rules are WFDF's, at
+    <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>, and in the app, searchable.</p>
+  </section>
+  <section class="download flat">
+    <h2>In the app</h2>
+    <p class="lines">Flatball Connect has all 12 calls, the full WFDF rulebook with its official
+    examples, the 24 hand signals and a daily rules quiz, offline and free, with no ads.</p>
+    <div class="buttons">
+      <a class="button" href="https://github.com/flatballconnect/flatball-releases/releases/latest/download/flatball.apk">Download for Android</a>
+      <a class="button soft" href="../install/">How to install</a>
+    </div>
+    <p class="small">iPhone: coming soon.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="../">Home</a>
+    <a href="../rules/">Rules</a>
+    <a href="../install/">Install</a>
+    <a href="../privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>The rules quoted are the WFDF Rules of Ultimate 2025-2028, and the hand signals are
+  from its Appendix F, redrawn for Flatball Connect: © World Flying Disc Federation, used
+  under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The official
+  rules are at <a href="https://rules.wfdf.sport/">rules.wfdf.sport</a>. The calls in plain
+  words, their steps and the USA Ultimate notes are Flatball Connect's own summary; the rules
+  are what count.</p>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../menu.js"></script>
 </body>
 </html>

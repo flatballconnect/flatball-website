@@ -19,22 +19,41 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-<div class="wrap">
-  <header class="brand-row">
-    <a class="brand" href="../">
-      <img class="logo-light" src="../logo.svg" alt="">
-      <img class="logo-dark" src="../logo-dark.svg" alt="">
-      Flatball Connect
-    </a>
-  </header>
+<body class="page">
+<header class="topbar">
+  <a class="brand" href="../">
+    <img class="logo-light" src="../logo.svg" alt="">
+    <img class="logo-dark" src="../logo-dark.svg" alt="">
+    Flatball Connect
+  </a>
+  <nav class="topnav" aria-label="Main">
+    <a href="../#features">Features</a>
+    <a href="../#screens">Screenshots</a>
+    <a href="../rules/">Rules</a>
+    <a href="../#help">Help</a>
+    <a class="pill" href="../install/">Get the app</a>
+  </nav>
+  <details class="menu">
+    <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+    <nav aria-label="Menu">
+      <a href="../#features">Features</a>
+      <a href="../#screens">Screenshots</a>
+      <a href="../rules/">Rules</a>
+      <a href="../#help">Help</a>
+      <a href="../install/">Get the app</a>
+    </nav>
+  </details>
+</header>
 
-  <main>
+<main>
+  <section class="page-hero">
+    <a class="crumb" href="../"><i class="icon" style="--src:url(../icons/back.svg)"></i>Home</a>
     <p class="eyebrow" id="kind">A shared game</p>
-    <h1 class="large" id="title">You've been sent a game.</h1>
+    <h1 id="title">You've been sent a game.</h1>
     <p class="lead" id="lead">Loading the game…</p>
-
-    <div id="game" hidden>
+  </section>
+  <div class="page-body">
+<div id="game" hidden>
       <div class="rows facts">
         <div class="row"><i class="icon" style="--src:url(../icons/date.svg)"></i>
           <div><strong id="when"></strong><p class="muted" id="length"></p></div></div>
@@ -70,25 +89,25 @@
       </div>
       <p class="muted">iPhone: coming soon.</p>
     </div>
-  </main>
+  </div>
+</main>
 
-  <footer class="site">
-    <nav>
-      <a href="../">Home</a>
-      <a href="../rules/">Rules</a>
-      <a href="../privacy/">Privacy policy</a>
-      <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
-    </nav>
-    <p>© 2026 Bala Malaivendan</p>
-  </footer>
-</div>
+<footer class="site">
+  <nav>
+    <a href="../">Home</a>
+    <a href="../rules/">Rules</a>
+    <a href="../privacy/">Privacy policy</a>
+    <a href="mailto:support@flatballconnect.app">support@flatballconnect.app</a>
+  </nav>
+  <p>© 2026 Bala Malaivendan</p>
+</footer>
+<script src="../menu.js"></script>
 <script>
   (function () {
     var id = new URLSearchParams(location.search).get('id');
     var valid = id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
     var $ = function (x) { return document.getElementById(x); };
     var set = function (x, text) { $(x).textContent = text; };
-
     // On Android, "Open in Flatball Connect" asks for the app by name, which
     // works even before Android has checked that this site and the app belong
     // together. Elsewhere it stays a link home.
@@ -97,7 +116,6 @@
         '#Intent;scheme=https;package=com.mvprojects.flatball;end';
     }
     if (!valid) { set('lead', 'The details are in the message you were sent. Open it in Flatball Connect to see who\'s going, and to say you\'re in.'); return; }
-
     // The app's own public key (Supabase's publishable key, in every APK
     // too): games are public, and game_by_id answers signed out with the
     // game and its counts, never who is going (0009, 0021).
@@ -112,15 +130,12 @@
       .catch(function () {
         set('lead', 'Couldn\'t load the game just now. The details are in the message you were sent.');
       });
-
     function gone() {
       set('title', 'This game isn\'t available any more.');
       set('lead', 'The organizer may have removed it. Find another one near you in the app.');
     }
-
     var kinds = { pickup: 'Pickup', league: 'League', tournament: 'Tournament', hat: 'Hat' };
     var levels = { beginner: 'Beginner', intermediate: 'Intermediate', club: 'Club', elite: 'Elite' };
-
     function show(g) {
       var start = new Date(g.starts_at);
       var minutes = g.duration_minutes || 120;
@@ -132,7 +147,6 @@
       var time = function (d) { return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); };
       // The zone in the reader's own words: "IST" in India, "EST" in the US.
       var zone = start.toLocaleTimeString(undefined, { timeZoneName: 'short' }).split(' ').pop();
-
       document.title = g.title + ' · Flatball Connect';
       set('kind', kinds[g.kind] || 'Game');
       set('title', g.title);
@@ -141,7 +155,6 @@
         : now >= start ? 'Happening now.'
         : 'Open it in Flatball Connect to see who\'s going, and to say you\'re in.';
       set('lead', status);
-
       set('when', day + ', ' + time(start) + ' – ' + time(end) + ' ' + zone);
       set('length', g.duration_minutes
         ? (minutes % 60 ? Math.floor(minutes / 60) + ' h ' + (minutes % 60) + ' min' : minutes / 60 + ' h')
@@ -152,7 +165,6 @@
       }).join(', '));
       $('directions').href = 'https://www.google.com/maps/dir/?api=1&destination=' +
         g.latitude + ',' + g.longitude;
-
       var going = g.going_count || 0;
       set('spots', g.capacity
         ? (Math.max(g.capacity - going, 0) ? Math.max(g.capacity - going, 0) + ' of ' + g.capacity + ' spots left' : 'Full')

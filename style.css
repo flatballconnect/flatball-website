@@ -284,15 +284,15 @@ footer.site p { margin: 4px 0; }
 
 /* The home page: a coloured hero with the phones cut off at its foot, a row
    of numbers, features beside one phone, a strip of screenshots, help, and a
-   coloured download band. Everything is scoped to .landing, so the other
-   pages keep their single column. */
-.landing { --hero: #3D6A9E; --hero-deep: #2C5079; --disc: #E2B25C; }
+   coloured download band. Every other page (.page, below) shares its top
+   bar, colours, download band and footer. */
+.landing, .page { --hero: #3D6A9E; --hero-deep: #2C5079; --disc: #E2B25C; }
 @media (prefers-color-scheme: dark) {
-  .landing { --hero: #2B3747; --hero-deep: #1F2833; }
+  .landing, .page { --hero: #2B3747; --hero-deep: #1F2833; }
 }
-html:has(.landing) { scroll-padding-top: 64px; }
+html:has(.landing), html:has(.page) { scroll-padding-top: 76px; }
 @media (prefers-reduced-motion: no-preference) {
-  html:has(.landing) { scroll-behavior: smooth; }
+  html:has(.landing), html:has(.page) { scroll-behavior: smooth; }
 }
 
 .topbar {
@@ -305,7 +305,7 @@ html:has(.landing) { scroll-padding-top: 64px; }
 .topbar .brand img { width: 34px; height: 34px; }
 .topnav { display: flex; align-items: center; gap: 24px; }
 .topnav a:not(.pill) { color: var(--text); text-decoration: none; font-weight: 500; font-size: 16px; }
-.topnav a:not(.pill):hover { color: var(--accent); }
+.topnav a:not(.pill):hover, .topnav a[aria-current] { color: var(--accent); }
 .menu { display: none; position: relative; }
 .menu summary {
   list-style: none; cursor: pointer; width: 44px; height: 44px; margin-right: -10px;
@@ -467,12 +467,12 @@ button.feature { cursor: pointer; }
 }
 .peek img { width: 56px; height: 56px; border-radius: 14px; }
 
-.landing footer.site {
+.landing footer.site, .page footer.site {
   margin: 0; padding: 26px 16px 32px; border: 0; text-align: center;
   background: var(--surface);
 }
-.landing footer.site nav { justify-content: center; margin-bottom: 12px; }
-.landing footer.site p { max-width: 640px; margin: 6px auto; }
+.landing footer.site nav, .page footer.site nav { justify-content: center; margin-bottom: 12px; }
+.landing footer.site p, .page footer.site p { max-width: 640px; margin: 6px auto; }
 
 @media (max-width: 640px) {
   .features { grid-template-columns: minmax(0, 1fr); }
@@ -480,3 +480,61 @@ button.feature { cursor: pointer; }
   .stats div:nth-child(3) { border-left: 0; }
   .track .phone { width: 196px; }
 }
+
+/* Every other page: a shorter coloured header, then the page itself, in a
+   column for reading or a wider one for lists and pictures. */
+.page-hero {
+  position: relative; text-align: center; color: #fff;
+  background: url(page-art.svg) center / cover no-repeat,
+    linear-gradient(160deg, var(--hero), var(--hero-deep));
+  padding: clamp(52px, 7vw, 72px) 16px clamp(36px, 5vw, 52px);
+}
+.page-hero .crumb {
+  position: absolute; left: clamp(10px, 3vw, 28px); top: 12px;
+  display: inline-flex; align-items: center; gap: 2px; padding: 6px 12px 6px 4px;
+  border-radius: 999px; color: #fff; font-size: 15px; font-weight: 500; text-decoration: none;
+}
+.page-hero .crumb:hover { background: rgba(255, 255, 255, 0.16); }
+.page-hero .crumb .icon { width: 22px; height: 22px; }
+.page-hero .eyebrow { margin: 0 0 8px; color: rgba(255, 255, 255, 0.82); }
+.page-hero h1 {
+  max-width: 760px; margin: 0 auto; font-size: clamp(32px, 5vw, 48px); line-height: 1.1;
+  font-weight: 700; letter-spacing: -0.025em; overflow-wrap: anywhere;
+}
+.page-hero .lead { max-width: 620px; margin: 12px auto 0; color: rgba(255, 255, 255, 0.88); }
+.page-hero .buttons { justify-content: center; margin: 22px 0 0; }
+.page-hero .button { background: #fff; color: var(--hero); }
+.page-hero .small { margin: 14px 0 0; color: rgba(255, 255, 255, 0.82); }
+
+.page-body { max-width: 792px; margin: 0 auto; padding: 16px 16px clamp(40px, 6vw, 60px); }
+.page-body.wide { max-width: 1072px; }
+.page-body > .section:first-child { margin-top: 20px; }
+
+/* A call: what happens and the rules in the wide column, its signal and
+   terms beside them. On a phone the signal comes before the rules. */
+.split { display: grid; gap: 0 36px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) {
+  .split { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; }
+  .split > .what { grid-column: 1; grid-row: 1; }
+  .split > .aside { grid-column: 2; grid-row: 1 / span 2; }
+  .split > .why { grid-column: 1; grid-row: 2; }
+}
+.split .signals { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 899px) {
+  .split .signals { grid-template-columns: minmax(0, 300px); justify-content: center; }
+}
+
+/* Lists and pictures inside a centred band. */
+.band .nav-cards { max-width: 1040px; margin: 28px auto 0; text-align: left; }
+.band .signals { max-width: 1040px; margin: 28px auto 0; text-align: left;
+  grid-template-columns: repeat(4, minmax(0, 240px)); justify-content: center; }
+@media (max-width: 640px) {
+  .band .signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.band .buttons { justify-content: center; margin-top: 24px; }
+.band .small { margin: 18px 0 0; }
+.signal { scroll-margin-top: 76px; }
+
+.download.flat { padding-bottom: clamp(40px, 6vw, 56px); }
+.download .small { margin: 14px 0 0; color: rgba(255, 255, 255, 0.82); }
+.download .lines { max-width: 620px; margin: 10px auto 0; color: rgba(255, 255, 255, 0.88); }
