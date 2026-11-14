@@ -20,6 +20,14 @@ for anything about deletion, `delete-account/`, in the same change.
   `style.css`, `menu.js`, `page-art.svg` behind each header). A change to
   the top bar is made in `tool/build-rules.py` for the rules pages and by
   hand in `install/`, `privacy/`, `delete-account/`, `game/` and `404.html`.
+- **The warm-up behind every blue header** (`warmup.js`, loaded by
+  `menu.js`, so no page needs its own script tag) is the app's: players at
+  each end throwing three slow discs, drawn in white on a canvas. Without
+  it, or when the visitor asks for less motion, the header keeps its still
+  drawing (the hero's SVG, `page-art.svg`). It stops while off screen.
+- **The screenshots** (`screens/`, 507×1100 JPEGs) are from the app's iOS
+  simulator at 9:41, in light mode, with the sample data a build without
+  keys has (games in Goa).
 - **`rules/` and `sitemap.xml` are generated** from the app's own content
   by `tool/build-rules.py` (the app's repo is expected at `../flatball`):
   the 12 Quick Reference calls, each with its steps, hand signal and the

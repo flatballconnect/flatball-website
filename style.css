@@ -538,3 +538,22 @@ button.feature { cursor: pointer; }
 .download.flat { padding-bottom: clamp(40px, 6vw, 56px); }
 .download .small { margin: 14px 0 0; color: rgba(255, 255, 255, 0.82); }
 .download .lines { max-width: 620px; margin: 10px auto 0; color: rgba(255, 255, 255, 0.88); }
+
+/* The warm-up behind the blue headers (warmup.js): a canvas under the
+   words, standing in for the still drawing once it plays. */
+canvas.warmup {
+  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+}
+.hero.playing .art { display: none; }
+.page-hero.playing { background: linear-gradient(160deg, var(--hero), var(--hero-deep)); }
+.page-hero.playing > :not(.warmup):not(.crumb) { position: relative; }
+
+/* The features' phone: a new screen fades and rises into place (home.js). */
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.stage img.arriving { animation: screen-in 0.26s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .stage img.arriving { animation: none; }
+}

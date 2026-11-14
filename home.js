@@ -12,7 +12,13 @@
       f.classList.toggle('on', on);
       f.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
-    if (stage.getAttribute('src') !== feature.dataset.screen) stage.src = feature.dataset.screen;
+    if (stage.getAttribute('src') !== feature.dataset.screen) {
+      stage.src = feature.dataset.screen;
+      // The new screen arrives as a tab does in the app: a short fade and rise.
+      stage.classList.remove('arriving');
+      void stage.offsetWidth;
+      stage.classList.add('arriving');
+    }
     stage.alt = feature.dataset.alt;
   }
   features.forEach(function (feature) {
